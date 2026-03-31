@@ -108,19 +108,5 @@
       <path d="M12 2L13.5 10.5L22 12L13.5 13.5L12 22L10.5 13.5L2 12L10.5 10.5L12 2Z" fill="#8A9BAC"/>
     </svg>
   </div>
-  <script>
-    // Match page background to logo's actual rendered background color
-    const img = document.querySelector('.logo');
-    img.addEventListener('load', () => {
-      const c = document.createElement('canvas');
-      c.width = img.naturalWidth;
-      c.height = img.naturalHeight;
-      const ctx = c.getContext('2d');
-      ctx.drawImage(img, 0, 0);
-      const [r, g, b] = ctx.getImageData(5, 5, 1, 1).data;
-      document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
-    });
-    if (img.complete) img.dispatchEvent(new Event('load'));
-  </script>
 </body>
 </html>
