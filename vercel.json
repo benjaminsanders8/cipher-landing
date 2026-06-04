@@ -1,14 +1,24 @@
 {
   "redirects": [
     { "source": "/login", "destination": "https://app.cipherhealthanalytics.com/login", "permanent": false },
+    { "source": "/login/", "destination": "https://app.cipherhealthanalytics.com/login", "permanent": false },
     { "source": "/msk", "destination": "https://app.cipherhealthanalytics.com/msk", "permanent": false },
+    { "source": "/msk/", "destination": "https://app.cipherhealthanalytics.com/msk", "permanent": false },
     { "source": "/cancer", "destination": "https://app.cipherhealthanalytics.com/cancer", "permanent": false },
+    { "source": "/cancer/", "destination": "https://app.cipherhealthanalytics.com/cancer", "permanent": false },
     { "source": "/infusions", "destination": "https://app.cipherhealthanalytics.com/infusions", "permanent": false },
+    { "source": "/infusions/", "destination": "https://app.cipherhealthanalytics.com/infusions", "permanent": false },
     { "source": "/imaging", "destination": "https://app.cipherhealthanalytics.com/imaging", "permanent": false },
+    { "source": "/imaging/", "destination": "https://app.cipherhealthanalytics.com/imaging", "permanent": false },
     { "source": "/rx", "destination": "https://app.cipherhealthanalytics.com/rx", "permanent": false },
+    { "source": "/rx/", "destination": "https://app.cipherhealthanalytics.com/rx", "permanent": false },
     { "source": "/gene-therapy", "destination": "https://app.cipherhealthanalytics.com/gene-therapy", "permanent": false },
+    { "source": "/gene-therapy/", "destination": "https://app.cipherhealthanalytics.com/gene-therapy", "permanent": false },
     { "source": "/gi-weight-loss", "destination": "https://app.cipherhealthanalytics.com/gi-weight-loss", "permanent": false },
+    { "source": "/gi-weight-loss/", "destination": "https://app.cipherhealthanalytics.com/gi-weight-loss", "permanent": false },
     { "source": "/target-lists", "destination": "https://app.cipherhealthanalytics.com/target-lists", "permanent": false },
-    { "source": "/cfo-summary", "destination": "https://app.cipherhealthanalytics.com/cfo-summary", "permanent": false }
+    { "source": "/target-lists/", "destination": "https://app.cipherhealthanalytics.com/target-lists", "permanent": false },
+    { "source": "/cfo-summary", "destination": "https://app.cipherhealthanalytics.com/cfo-summary", "permanent": false },
+    { "source": "/cfo-summary/", "destination": "https://app.cipherhealthanalytics.com/cfo-summary", "permanent": false }
   ]
 }
