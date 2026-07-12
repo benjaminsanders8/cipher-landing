@@ -1,5 +1,8 @@
 {
+  "cleanUrls": true,
   "redirects": [
+    { "source": "/about", "destination": "/team", "permanent": false },
+    { "source": "/about/", "destination": "/team", "permanent": false },
     { "source": "/login", "destination": "https://app.cipherhealthanalytics.com/login", "permanent": false },
     { "source": "/login/", "destination": "https://app.cipherhealthanalytics.com/login", "permanent": false },
     { "source": "/msk", "destination": "https://app.cipherhealthanalytics.com/msk", "permanent": false },

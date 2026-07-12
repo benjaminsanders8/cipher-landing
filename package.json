@@ -1,0 +1,10 @@
+{
+  "name": "cipher-landing",
+  "private": true,
+  "scripts": {
+    "dev": "serve -l 3001 ."
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
