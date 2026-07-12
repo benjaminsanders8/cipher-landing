@@ -158,7 +158,7 @@
 </div>
 <script>
 (function(){
-  function openDemo(e){ e.preventDefault(); document.getElementById('dscrim').classList.add('open'); document.getElementById('dmodal').classList.add('open'); }
+  function openDemo(e){ e.preventDefault(); var t = e.currentTarget && e.currentTarget.getAttribute && e.currentTarget.getAttribute('data-dtitle'); document.querySelector('#dmodal .dhead span').textContent = t || 'BOOK A DEMO'; document.getElementById('dscrim').classList.add('open'); document.getElementById('dmodal').classList.add('open'); }
   window.closeDemo = function(){ document.getElementById('dscrim').classList.remove('open'); document.getElementById('dmodal').classList.remove('open'); };
   document.querySelectorAll('a[href="#demo"]').forEach(function(a){ a.addEventListener('click', openDemo); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDemo(); });

@@ -229,13 +229,13 @@
         <div class="klbl">For Consultants &amp; Brokers</div>
         <h3>Analytics that make your recommendations land.</h3>
         <p>Condition-specific intelligence across your whole book — sharper insights, defensible recommendations, client-ready deliverables.</p>
-        <a class="arrow-link" href="#demo"><span class="ar">→</span>Partner with Cipher</a>
+        <a class="arrow-link" href="#demo" data-dtitle="PARTNER WITH CIPHER"><span class="ar">→</span>Partner with Cipher</a>
       </div>
       <div class="audcard">
         <div class="klbl">For TPAs &amp; Carriers</div>
         <h3>Value your plans can see.</h3>
         <p>Deploy Cipher across the plans you serve to surface savings and direct vendors — without giving up your data.</p>
-        <a class="arrow-link" href="#demo"><span class="ar">→</span>Talk to us</a>
+        <a class="arrow-link" href="#demo" data-dtitle="TALK TO US"><span class="ar">→</span>Talk to us</a>
       </div>
     </div>
   </div>
@@ -341,7 +341,7 @@
 </div>
 <script>
 (function(){
-  function openDemo(e){ e.preventDefault(); document.getElementById('dscrim').classList.add('open'); document.getElementById('dmodal').classList.add('open'); }
+  function openDemo(e){ e.preventDefault(); var t = e.currentTarget && e.currentTarget.getAttribute && e.currentTarget.getAttribute('data-dtitle'); document.querySelector('#dmodal .dhead span').textContent = t || 'BOOK A DEMO'; document.getElementById('dscrim').classList.add('open'); document.getElementById('dmodal').classList.add('open'); }
   window.closeDemo = function(){ document.getElementById('dscrim').classList.remove('open'); document.getElementById('dmodal').classList.remove('open'); };
   document.querySelectorAll('a[href="#demo"]').forEach(function(a){ a.addEventListener('click', openDemo); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDemo(); });
