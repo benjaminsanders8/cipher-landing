@@ -338,9 +338,11 @@
   function update(){
     var vh = window.innerHeight;
     var r = panel.getBoundingClientRect();
-    /* p: 0 when the panel's top enters the viewport bottom,
-       1 when the panel's top nears the top of the viewport. */
-    var p = reduced ? 1 : Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.95)));
+    /* q: the panel's full traversal — 0 entering at the bottom,
+       0.5 centered, 1 exiting past the top.
+       p: assembly, peaking at center and re-exploding on exit. */
+    var q = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+    var p = reduced ? 1 : Math.sin(Math.PI * q);
     var scale = Math.min(1.45, Math.max(0.9, r.width / 380));
 
     var pieces = scene.querySelectorAll('.cube-piece');
@@ -359,8 +361,8 @@
         'translate3d(' + (fx+ox*k) + 'px,' + (fy+oy*k) + 'px,' + (fz+oz*k) + 'px)' +
         ' rotateX(' + rx*k + 'deg) rotateY(' + ry*k + 'deg) rotateZ(' + rz*k + 'deg)';
     }
-    scene.style.transform = 'translate(-50%,-50%) scale(' + scale + ') rotateX(-18deg) rotateY(' + (28 + p*230) + 'deg)';
-    if (hint) hint.style.opacity = reduced ? 0 : Math.max(0, 0.8 - p*3);
+    scene.style.transform = 'translate(-50%,-50%) scale(' + scale + ') rotateX(-18deg) rotateY(' + (28 + (reduced ? 0.5 : q)*230) + 'deg)';
+    if (hint) hint.style.opacity = reduced ? 0 : Math.max(0, 0.8 - q*2.6);
   }
 
   if (reduced){
