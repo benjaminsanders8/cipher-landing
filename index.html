@@ -111,16 +111,13 @@
       <h2 class="sec-title">Meet <img src="assets/cipher-wordmark.png" alt="Cipher" class="inline-wordmark"> - the engine that turns your claims into decisions.</h2>
       <div class="sec-rule"></div>
     </div>
-    <div class="engine-grid">
-      <div class="engine-text">
-        <p>Your health plan's information is scattered. Your carrier, your PBM, your vendors, and the doctors who treat your members each hold one piece — none of them hold the whole picture. Cipher pulls in every data feed, cleans it, groups the claims into episodes, and gives you one clear answer instead of a pile of disconnected reports.</p>
-      </div>
-      <div class="engine-fig">
-        <div class="cube-panel" id="cubePanel" role="img" aria-label="Animation: seven scattered pieces assemble into a single cube — scattered feeds, one answer">
-          <div class="cube-scene" id="cubeScene"></div>
-          <div class="cube-hint" id="cubeHint">Scroll to assemble<span class="cube-hint-line"></span></div>
-        </div>
-        <div class="fig-caption">FIG. 01 — Scattered feeds, one answer</div>
+    <p class="engine-lede">Your health plan's information is scattered. Your carrier, your PBM, your vendors, and the doctors who treat your members each hold one piece — none of them hold the whole picture. Cipher pulls in every data feed, cleans it, groups the claims into episodes, and gives you one clear answer instead of a pile of disconnected reports.</p>
+
+    <div class="cube-stage" id="cubeStage">
+      <div class="cube-sticky" id="cubePanel" role="img" aria-label="Animation: seven scattered pieces assemble into a single cube — scattered feeds, one answer">
+        <div class="cube-scene" id="cubeScene"></div>
+        <div class="cube-hint" id="cubeHint">Scroll to assemble<span class="cube-hint-line"></span></div>
+        <div class="cube-caption">FIG. 01 — Scattered feeds, one answer</div>
       </div>
     </div>
 
@@ -289,9 +286,10 @@
   var D = 76, HALF = 36, EXPLODE = 520;
 
   var panel = document.getElementById('cubePanel');
+  var stage = document.getElementById('cubeStage');
   var scene = document.getElementById('cubeScene');
   var hint = document.getElementById('cubeHint');
-  if (!panel || !scene) return;
+  if (!panel || !scene || !stage) return;
 
   function rand(i, n){ var v = Math.sin(i * 12.9898 + n * 78.233) * 43758.5453; return v - Math.floor(v); }
   function centroid(cells){
@@ -338,12 +336,13 @@
   function update(){
     var vh = window.innerHeight;
     var r = panel.getBoundingClientRect();
-    /* q: the panel's full traversal — 0 entering at the bottom,
-       0.5 centered, 1 exiting past the top.
-       p: assembly, peaking at center and re-exploding on exit. */
-    var q = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
-    var p = reduced ? 1 : Math.sin(Math.PI * q);
-    var scale = Math.min(1.45, Math.max(0.9, r.width / 380));
+    var tr = stage.getBoundingClientRect();
+    /* q: progress through the tall pinned stage — 0 entering, 1 fully past.
+       p: assembly. Rises over the first third, holds fully assembled
+       through the middle third, re-explodes over the last third. */
+    var q = Math.min(1, Math.max(0, (vh - tr.top) / tr.height));
+    var p = reduced ? 1 : Math.min(1, Math.sin(Math.PI * q) * 1.35);
+    var scale = Math.min(2.2, Math.max(0.9, Math.min(r.width, r.height) / 420));
 
     var pieces = scene.querySelectorAll('.cube-piece');
     for (var i = 0; i < pieces.length; i++){
@@ -362,7 +361,7 @@
         ' rotateX(' + rx*k + 'deg) rotateY(' + ry*k + 'deg) rotateZ(' + rz*k + 'deg)';
     }
     scene.style.transform = 'translate(-50%,-50%) scale(' + scale + ') rotateX(-18deg) rotateY(' + (28 + (reduced ? 0.5 : q)*230) + 'deg)';
-    if (hint) hint.style.opacity = reduced ? 0 : Math.max(0, 0.8 - q*2.6);
+    if (hint) hint.style.opacity = reduced ? 0 : Math.max(0, 0.8 - q*4);
   }
 
   if (reduced){
