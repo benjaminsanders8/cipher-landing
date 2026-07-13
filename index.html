@@ -283,7 +283,7 @@
     [[2,2,0],[2,2,1],[1,2,2],[2,2,2]]
   ];
   var PAL = ['#E38B1F','#2E4370','#F5F3EE','#B5670F','#7A8BAB','#24355C','#F5A93F'];
-  var D = 76, HALF = 36, EXPLODE = 520;
+  var D = 76, HALF = 36, EXPLODE = 400;
 
   var panel = document.getElementById('cubePanel');
   var stage = document.getElementById('cubeStage');
@@ -292,6 +292,7 @@
   if (!panel || !scene || !stage) return;
 
   function rand(i, n){ var v = Math.sin(i * 12.9898 + n * 78.233) * 43758.5453; return v - Math.floor(v); }
+  function smooth(t){ return t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t); }
   function centroid(cells){
     var m = [0,0,0];
     cells.forEach(function(c){ m[0]+=c[0]; m[1]+=c[1]; m[2]+=c[2]; });
@@ -341,21 +342,23 @@
        p: assembly. Rises over the first third, holds fully assembled
        through the middle third, re-explodes over the last third. */
     var q = Math.min(1, Math.max(0, (vh - tr.top) / tr.height));
-    var p = reduced ? 1 : Math.min(1, Math.sin(Math.PI * q) * 1.35);
+    var rise = smooth((q - 0.02) / 0.42);
+    var fall = smooth((q - 0.60) / 0.38);
+    var p = reduced ? 1 : Math.min(rise, 1 - fall);
     var scale = Math.min(2.2, Math.max(0.9, Math.min(r.width, r.height) / 420));
 
     var pieces = scene.querySelectorAll('.cube-piece');
     for (var i = 0; i < pieces.length; i++){
       var m = centroids[i];
       var fx = (m[0]-1)*D, fy = (1-m[1])*D, fz = (m[2]-1)*D;
-      var start = rand(i,7) * 0.7;
-      var t = Math.min(1, Math.max(0, (p - start) / 0.3));
-      var e = 1 - Math.pow(1 - t, 3);
+      var start = rand(i,7) * 0.45;
+      var t = Math.min(1, Math.max(0, (p - start) / 0.55));
+      var e = t * t * t * (t * (t * 6 - 15) + 10);
       var k = 1 - e;
       var ox = (rand(i,1)-0.5) * 2 * EXPLODE;
       var oy = (rand(i,2)-0.5) * 2 * EXPLODE;
       var oz = (rand(i,3)-0.5) * 2 * EXPLODE;
-      var rx = (rand(i,4)-0.5) * 720, ry = (rand(i,5)-0.5) * 720, rz = (rand(i,6)-0.5) * 720;
+      var rx = (rand(i,4)-0.5) * 480, ry = (rand(i,5)-0.5) * 480, rz = (rand(i,6)-0.5) * 480;
       pieces[i].style.transform =
         'translate3d(' + (fx+ox*k) + 'px,' + (fy+oy*k) + 'px,' + (fz+oz*k) + 'px)' +
         ' rotateX(' + rx*k + 'deg) rotateY(' + ry*k + 'deg) rotateZ(' + rz*k + 'deg)';
