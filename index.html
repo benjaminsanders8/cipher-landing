@@ -339,16 +339,16 @@
     var vh = window.innerHeight;
     var r = panel.getBoundingClientRect();
     /* p: 0 when the panel's top enters the viewport bottom,
-       1 when the panel is centered in the viewport. */
-    var p = reduced ? 1 : Math.min(1, Math.max(0, (vh - r.top) / (vh/2 + r.height/2)));
+       1 when the panel's top nears the top of the viewport. */
+    var p = reduced ? 1 : Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.95)));
     var scale = Math.min(1.45, Math.max(0.9, r.width / 380));
 
     var pieces = scene.querySelectorAll('.cube-piece');
     for (var i = 0; i < pieces.length; i++){
       var m = centroids[i];
       var fx = (m[0]-1)*D, fy = (1-m[1])*D, fz = (m[2]-1)*D;
-      var start = rand(i,7) * 0.5;
-      var t = Math.min(1, Math.max(0, (p - start) / 0.5));
+      var start = rand(i,7) * 0.7;
+      var t = Math.min(1, Math.max(0, (p - start) / 0.3));
       var e = 1 - Math.pow(1 - t, 3);
       var k = 1 - e;
       var ox = (rand(i,1)-0.5) * 2 * EXPLODE;
