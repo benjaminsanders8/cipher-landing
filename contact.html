@@ -191,6 +191,19 @@
   </div>
 </section>
 
+<!-- 4. TRUST CENTER -->
+<section class="dark" id="trust-center">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow-mono">Trust Center</div>
+      <h2 class="sec-title">Security &amp; compliance documentation.</h2>
+      <div class="sec-rule"></div>
+    </div>
+    <p class="sec-body">Evaluating Cipher, or running a vendor security review? Request our trust center documents — security overview, data-handling and privacy practices, and our current SOC 2 status — and we'll follow up with the relevant materials.</p>
+    <a class="btn btn-amber" href="#trust">Request documents&nbsp;&nbsp;→</a>
+  </div>
+</section>
+
 <footer>
   <div class="wrap foot">
     <div>
@@ -209,6 +222,7 @@
       <a href="#demo">Book a Demo</a>
     </div>
     <div>
+      <a href="/contact#trust">Trust Center</a>
       <a href="#">Status</a><!-- TODO: [STATUS PAGE URL] -->
       <a href="#">Terms of Service</a><!-- TODO: [TERMS URL] -->
       <a href="#">SLA</a><!-- TODO: [SLA URL] -->
@@ -229,12 +243,27 @@
     <a class="btn btn-amber dwide" href="#" id="demoSend">Send email&nbsp;&nbsp;→</a>
   </div>
 </div>
+
+<div class="dscrim" id="tscrim" onclick="closeTrust()"></div>
+<div class="dmodal" id="tmodal" role="dialog" aria-label="Request trust center documents">
+  <div class="dhead"><span>TRUST CENTER</span><button class="dx" onclick="closeTrust()" aria-label="Close">×</button></div>
+  <div class="dbody">
+    <p class="dintro">Request access to our security and compliance documentation. Tell us who you are and what you need, and we'll follow up with the relevant materials.</p>
+    <label class="dlbl" for="trustWho">Name &amp; company</label>
+    <input id="trustWho" type="text" autocomplete="organization" placeholder="Jane Doe, Acme Corp">
+    <label class="dlbl" for="trustEmail">Work email</label>
+    <input id="trustEmail" type="email" autocomplete="email" placeholder="jane@acme.com">
+    <label class="dlbl" for="trustMsg">What do you need?</label>
+    <textarea id="trustMsg" placeholder="e.g. security overview, DPA, SOC 2 status, subprocessor list"></textarea>
+    <a class="btn btn-amber dwide" href="#" id="trustSend">Send request&nbsp;&nbsp;→</a>
+  </div>
+</div>
 <script>
 (function(){
   function openDemo(e){ e.preventDefault(); var t = e.currentTarget && e.currentTarget.getAttribute && e.currentTarget.getAttribute('data-dtitle'); document.querySelector('#dmodal .dhead span').textContent = t || 'BOOK A DEMO'; document.getElementById('dscrim').classList.add('open'); document.getElementById('dmodal').classList.add('open'); }
   window.closeDemo = function(){ document.getElementById('dscrim').classList.remove('open'); document.getElementById('dmodal').classList.remove('open'); };
   document.querySelectorAll('a[href="#demo"]').forEach(function(a){ a.addEventListener('click', openDemo); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDemo(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ closeDemo(); closeTrust(); } });
   var nb=document.querySelector('.nav-burger'), nl=document.getElementById('navLinks');
   if(nb&&nl){
     nb.addEventListener('click', function(){ var o=nl.classList.toggle('open'); nb.setAttribute('aria-expanded', o?'true':'false'); });
@@ -260,6 +289,22 @@
       location.href = 'mailto:support@cipherhealthanalytics.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     });
   }
+  // Trust Center modal — opened by any link ending in "#trust" (the section
+  // button and the site-wide footer link "/contact#trust"), or by landing on
+  // /contact#trust directly. Sends the request to security@ via the visitor's
+  // email app (same mailto pattern as the demo form).
+  function openTrust(e){ if(e){ e.preventDefault(); } document.getElementById('tscrim').classList.add('open'); document.getElementById('tmodal').classList.add('open'); }
+  window.closeTrust = function(){ document.getElementById('tscrim').classList.remove('open'); document.getElementById('tmodal').classList.remove('open'); };
+  document.querySelectorAll('a[href$="#trust"]').forEach(function(a){ a.addEventListener('click', openTrust); });
+  if(location.hash === '#trust'){ openTrust(); }
+  document.getElementById('trustSend').addEventListener('click', function(e){
+    e.preventDefault();
+    var who = document.getElementById('trustWho').value.trim();
+    var email = document.getElementById('trustEmail').value.trim();
+    var msg = document.getElementById('trustMsg').value.trim();
+    var body = 'Name / company: ' + who + '\nWork email: ' + email + '\n\nRequested: ' + msg;
+    location.href = 'mailto:security@cipherhealthanalytics.com?subject=' + encodeURIComponent('Trust center document request') + '&body=' + encodeURIComponent(body);
+  });
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>

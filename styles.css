@@ -154,6 +154,9 @@ h2.big{font-size:clamp(30px,4vw,44px);font-weight:700;margin-bottom:20px;}
 .dlbl{font-size:13.5px;color:var(--gray);display:block;margin-bottom:8px;}
 .dmodal textarea{width:100%;border:1px solid var(--line);padding:12px;font:inherit;font-size:15px;min-height:110px;resize:vertical;color:var(--navy);box-sizing:border-box;margin-bottom:12px;}
 .dmodal textarea:focus{outline:2px solid var(--amber);border-color:transparent;}
+.dmodal input{width:100%;border:1px solid var(--line);padding:11px 12px;font:inherit;font-size:15px;color:var(--navy);box-sizing:border-box;margin-bottom:12px;}
+.dmodal input:focus{outline:2px solid var(--amber);border-color:transparent;}
+.dmodal .dintro{font-size:14.5px;color:var(--gray);line-height:1.55;margin-bottom:18px;}
 
 /* ---------- responsive */
 @media(max-width:880px){
