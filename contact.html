@@ -41,13 +41,18 @@
   .form-note{font-size:13px;color:var(--dash);margin:0 0 22px;max-width:460px;}
   .fallback{margin-top:16px;font-size:14.5px;color:var(--gray);}
   .fallback a{color:var(--navy);text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:3px;}
-  /* live status indicator (square, to match the zero-radius system) */
-  .status-monitor{display:inline-flex;align-items:center;gap:16px;border:1px solid var(--line);padding:18px 24px;background:#fff;}
-  .status-dot{position:relative;width:12px;height:12px;background:#16A34A;flex-shrink:0;}
-  .status-dot::after{content:'';position:absolute;inset:0;background:#16A34A;animation:statusPulse 2.2s ease-out infinite;}
+  /* live status indicator (square, to match the zero-radius system); colour driven by data-state */
+  .status-monitor{display:inline-flex;align-items:center;gap:16px;border:1px solid var(--line);padding:18px 24px;background:#fff;--st-color:#9CA3AF;}
+  .status-monitor[data-state="operational"]{--st-color:#16A34A;}
+  .status-monitor[data-state="degraded"]{--st-color:#D97706;}
+  .status-monitor[data-state="down"]{--st-color:#DC2626;}
+  .status-dot{position:relative;width:12px;height:12px;background:var(--st-color);flex-shrink:0;}
+  .status-dot::after{content:'';position:absolute;inset:0;background:var(--st-color);animation:statusPulse 2.2s ease-out infinite;}
+  .status-monitor[data-state="checking"] .status-dot::after,.status-monitor[data-state="unknown"] .status-dot::after{animation:none;}
   @keyframes statusPulse{0%{opacity:.55;transform:scale(1);}70%,100%{opacity:0;transform:scale(2.6);}}
   .status-state{font-weight:700;color:var(--navy);font-size:16.5px;}
   .status-note{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:3px;}
+  .status-note a{color:var(--gray);text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:2px;}
   @media(prefers-reduced-motion:reduce){.status-dot::after{animation:none;}}
   /* dark-band content overrides for this page */
   .dark .sec-body{color:rgba(255,255,255,.74);}
@@ -177,14 +182,14 @@
       <div class="sec-rule"></div>
     </div>
     <p class="sec-body">Live platform status is shown below. If you're seeing a problem that isn't reflected here, email support and we'll respond right away.</p>
-    <!-- Static status indicator. When a real monitoring/status service (e.g. a
-         Statuspage or Better Stack page) is connected, drive .status-state and
-         the .status-dot color from its API/badge instead of hard-coding "operational". -->
-    <div class="status-monitor" role="status" aria-live="polite">
+    <!-- Live status. The indicator reflects Google Cloud's public status feed
+         (the platform's infrastructure), fetched client-side on load — see the
+         script at the bottom of this page. data-state drives colour + label. -->
+    <div class="status-monitor" role="status" aria-live="polite" id="statusMonitor" data-state="checking">
       <span class="status-dot" aria-hidden="true"></span>
       <div class="status-meta">
-        <div class="status-state">All systems operational</div>
-        <div class="status-note">Cipher platform</div>
+        <div class="status-state" id="statusState">Checking status…</div>
+        <div class="status-note">Source: <a href="https://status.cloud.google.com/" target="_blank" rel="noopener">Google Cloud Status</a></div>
       </div>
     </div>
     <div class="fallback">Seeing an issue? Email <a href="mailto:support@cipherhealthanalytics.com">support@cipherhealthanalytics.com</a>.</div>
@@ -297,6 +302,28 @@
     var body = 'Name / company: ' + who + '\nWork email: ' + email + '\n\nRequested: ' + msg;
     location.href = 'mailto:security@cipherhealthanalytics.com?subject=' + encodeURIComponent('Trust center document request') + '&body=' + encodeURIComponent(body);
   });
+  // Live status — reflects Google Cloud's public status feed (the platform's
+  // infrastructure). The feed is CORS-open, so we read it directly from the
+  // browser on load. An incident counts as active only if it has no end date
+  // and is an actual disruption/outage (not an informational notice). If the
+  // feed can't be reached we show "Status unavailable" rather than falsely
+  // claiming everything is healthy.
+  var mon = document.getElementById('statusMonitor'), stEl = document.getElementById('statusState');
+  if(mon && stEl){
+    var LABELS = { operational:'All systems operational', degraded:'Degraded performance', down:'Service disruption', unknown:'Status unavailable' };
+    var setState = function(s){ mon.setAttribute('data-state', s); stEl.textContent = LABELS[s] || LABELS.unknown; };
+    fetch('https://status.cloud.google.com/incidents.json', { cache: 'no-store' })
+      .then(function(r){ if(!r.ok) throw new Error('feed ' + r.status); return r.json(); })
+      .then(function(list){
+        var open = (list || []).filter(function(x){
+          return !x.end && (x.status_impact === 'SERVICE_DISRUPTION' || x.status_impact === 'SERVICE_OUTAGE');
+        });
+        if(!open.length){ setState('operational'); return; }
+        var major = open.some(function(x){ return x.status_impact === 'SERVICE_OUTAGE' || String(x.severity).toLowerCase() === 'high'; });
+        setState(major ? 'down' : 'degraded');
+      })
+      .catch(function(){ setState('unknown'); });
+  }
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
