@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Demo | Cipher Health Analytics</title>
+<meta name="description" content="Estimate the cancer burden hiding in your population.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cipherhealthanalytics.com/demo">
+<meta property="og:title" content="Interactive Demo | Cipher Health Analytics">
+<meta property="og:description" content="Estimate the cancer burden hiding in your population.">
+<meta property="og:image" content="https://cipherhealthanalytics.com/assets/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Interactive Demo | Cipher Health Analytics">
+<meta name="twitter:description" content="Estimate the cancer burden hiding in your population.">
+<meta name="twitter:image" content="https://cipherhealthanalytics.com/assets/og-card.png">
+<link rel="icon" type="image/png" sizes="128x128" href="/assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+
+<style>
+  /* The demo itself (cancer-demo.html) renders inside an iframe so its
+     app-faithful design system stays isolated from the marketing styles.
+     The frame is same-origin, so the script below auto-sizes its height
+     and bridges the demo's CTA button to the Book a Demo modal. */
+  .demo-band{padding:0 0 72px;}
+  .demo-band iframe{display:block;width:100%;border:0;height:1250px;}
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="/" aria-label="Cipher"><img src="assets/cipher-wordmark.png" alt="Cipher" style="height:52px;display:block;"></a>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="/#autokey">The Product</a>
+      <a href="/#serve">Who We Serve</a>
+      <a href="/team">The Team</a>
+      <a href="/contact">Contact</a>
+      <a class="nav-proto" href="/demo">View Prototype</a>
+      <a class="nav-cta" href="#demo">Book a Demo</a>
+    </div>
+  </div>
+</nav>
+
+<div class="demo-band">
+  <iframe id="demoFrame" src="/cancer-demo" title="Interactive cancer demo — expected cancer cases in your population"></iframe>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <img src="assets/cipher-wordmark.png" alt="Cipher" style="height:22px;display:block;margin-bottom:10px;">
+      <div class="foot-tag">Healthcare Analytics · Turning claims data into decisions.</div>
+      <a href="mailto:info@cipherhealthanalytics.com" style="margin-top:12px;">info@cipherhealthanalytics.com</a>
+    </div>
+    <div>
+      <a href="/#autokey">The Product</a>
+      <a href="/#serve">Who We Serve</a>
+      <a href="/team">The Team</a>
+    </div>
+    <div>
+      <a href="/contact">Contact</a>
+      <a href="/demo">View Prototype</a>
+      <a href="#demo">Book a Demo</a>
+    </div>
+  </div>
+</footer>
+
+<div class="dscrim" id="dscrim" onclick="closeDemo()"></div>
+<div class="dmodal" id="dmodal" role="dialog" aria-label="Book a demo">
+  <div class="dhead"><span>BOOK A DEMO</span><button class="dx" onclick="closeDemo()" aria-label="Close">×</button></div>
+  <div class="dbody">
+    <a class="btn btn-navy dwide" href="https://calendar.app.google/orMtDRpkcFJMM4xY7" target="_blank" rel="noopener">Book a meeting&nbsp;&nbsp;→</a>
+    <div class="dor"><span>or</span></div>
+    <label class="dlbl" for="demoMsg">Send us a note</label>
+    <textarea id="demoMsg" placeholder="Tell us about your plan, your book, or what you'd like to see…"></textarea>
+    <a class="btn btn-amber dwide" href="#" id="demoSend">Send email&nbsp;&nbsp;→</a>
+  </div>
+</div>
+<script>
+(function(){
+  function openDemo(e){ e.preventDefault(); var t = e.currentTarget && e.currentTarget.getAttribute && e.currentTarget.getAttribute('data-dtitle'); document.querySelector('#dmodal .dhead span').textContent = t || 'BOOK A DEMO'; document.getElementById('dscrim').classList.add('open'); document.getElementById('dmodal').classList.add('open'); }
+  window.closeDemo = function(){ document.getElementById('dscrim').classList.remove('open'); document.getElementById('dmodal').classList.remove('open'); };
+  document.querySelectorAll('a[href="#demo"]').forEach(function(a){ a.addEventListener('click', openDemo); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeDemo(); });
+  var nb=document.querySelector('.nav-burger'), nl=document.getElementById('navLinks');
+  if(nb&&nl){
+    nb.addEventListener('click', function(){ var o=nl.classList.toggle('open'); nb.setAttribute('aria-expanded', o?'true':'false'); });
+    nl.addEventListener('click', function(e){ var t=e.target.closest&&e.target.closest('a'); if(t){ nl.classList.remove('open'); nb.setAttribute('aria-expanded','false'); } });
+  }
+  document.getElementById('demoSend').addEventListener('click', function(e){
+    e.preventDefault();
+    var t = document.getElementById('demoMsg').value.trim();
+    location.href = 'mailto:info@cipherhealthanalytics.com?subject=' + encodeURIComponent('Demo request — Cipher') + (t ? '&body=' + encodeURIComponent(t) : '');
+  });
+})();
+</script>
+<script>
+(function(){
+  /* Same-origin iframe integration:
+     1) auto-size the frame to the demo's content (table toggle changes height)
+     2) bridge the demo's "See AutoKey in action" button to the Book a Demo modal */
+  var f = document.getElementById('demoFrame');
+  if(!f) return;
+  function size(){
+    try{
+      var d = f.contentDocument;
+      // body.scrollHeight, NOT documentElement.scrollHeight: the latter is floored
+      // at the frame's current viewport height, so the frame could grow but never
+      // shrink back (e.g. after collapsing the table view).
+      if(d && d.body) f.style.height = d.body.scrollHeight + 'px';
+    }catch(e){}
+  }
+  function ready(){
+    size();
+    try{
+      var b = f.contentDocument.querySelector('.cta-button');
+      if(b){
+        b.addEventListener('click', function(){
+          document.querySelector('#dmodal .dhead span').textContent = 'BOOK A DEMO';
+          document.getElementById('dscrim').classList.add('open');
+          document.getElementById('dmodal').classList.add('open');
+          // Move focus out of the frame and into the dialog so keyboard users
+          // aren't stranded behind the modal.
+          document.querySelector('#dmodal .dx').focus();
+        });
+      }
+      // Escape must also work while focus is inside the frame — key events
+      // don't cross the frame boundary to the parent document's handler.
+      f.contentDocument.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeDemo(); });
+      new ResizeObserver(size).observe(f.contentDocument.body);
+      // Backstop for the table toggle (the only height-changing interaction):
+      // re-measure shortly after any click, in case ResizeObserver is unavailable.
+      f.contentDocument.addEventListener('click', function(){ setTimeout(size, 60); setTimeout(size, 500); });
+    }catch(e){ setInterval(size, 800); }
+  }
+  f.addEventListener('load', ready);
+  try{ if(f.contentDocument && f.contentDocument.readyState === 'complete' && f.contentDocument.getElementById('incidence-chart')) ready(); }catch(e){}
+})();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("5NRP9H7R59O1");</script>
+</body>
+</html>

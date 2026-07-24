@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cipher — Expected Cancer Cases in Your Population</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@700;800&display=swap" rel="stylesheet">
+<!-- Chart.js pinned at 4.4.4, self-hosted: the prototype's cdnjs URL 404s, and
+     corporate proxies often block CDN domains anyway. Same official npm build. -->
+<script src="/assets/vendor/chart.umd.min.js"></script>
+<style>
+/* ── Cipher AutoKey design tokens (light theme) ─────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:#ffffff; --surface:#ffffff; --surface2:#f7f8f9;
+  --border:#D8DBE0; --border2:#C4C8CF;
+  --text:#1B2A4A; --text2:#3E4452; --text3:#6B7077; --text4:#9CA0A8;
+  --accent:#D97706;
+  --navy-800:#1E3A5F; --navy-600:#3B6BA5; --navy-400:#5B8DB8;
+  --risk:#C0392B; --savings:#1E7A42;
+  --chart-grid:#E8EAED; --chart-muted:#9CA0A8;
+  --font-sans:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --font-display:Archivo,'Helvetica Neue',Arial,sans-serif;
+  --radius:6px;
+}
+html, body {
+  font-family: var(--font-sans);
+  background: var(--bg); color: var(--text);
+  font-size: 14px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.page-inner { max-width: 1010px; margin: 0 auto; padding: 44px 56px 110px; }
+
+/* ── Page header ── */
+.page-header { border-top: 3px solid var(--text); margin-bottom: 34px; padding-top: 12px; }
+.detail-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.detail-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--navy-800); flex: 0 0 auto; }
+.page-title {
+  color: var(--text); font-family: var(--font-display);
+  font-size: 24px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.25;
+}
+.page-sub { font-size: 13px; color: var(--text3); margin-top: 6px; max-width: 640px; }
+.demo-badge {
+  display: inline-block; margin-left: 10px; padding: 2px 8px; border-radius: 999px;
+  background: var(--surface2); color: var(--text3);
+  font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* ── Section label ── */
+.section-label {
+  font-size: 10px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: .08em; color: var(--text3); margin-bottom: 10px;
+}
+.page-gap-section { margin-bottom: 34px; }
+
+/* ── Controls ── */
+.demo-controls {
+  display: grid; gap: 12px 18px;
+  grid-template-columns: minmax(180px,1.2fr) minmax(220px,1.6fr) minmax(110px,.8fr) minmax(110px,.8fr);
+  margin-bottom: 10px; max-width: 920px;
+}
+.demo-controls label span {
+  display: block; color: var(--text3); font-size: 11px; font-weight: 500;
+  letter-spacing: .05em; margin-bottom: 5px; text-transform: uppercase;
+}
+.demo-controls input, .demo-controls select {
+  width: 100%; border: 1px solid var(--border2); border-radius: var(--radius);
+  background: var(--surface); color: var(--text); font: inherit; padding: 7px 9px;
+}
+.demo-controls small { color: var(--text3); display: block; font-size: 11px; margin-top: 4px; }
+.preset-description { color: var(--text3); font-size: 12px; line-height: 1.5; max-width: 920px; margin-bottom: 4px; min-height: 18px; }
+
+/* ── KPI cards ── */
+.kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 34px; margin-bottom: 34px; max-width: 920px; }
+.kpi-card { background: transparent; border-top: 1px solid var(--text); border-radius: 0; padding: 12px 0 0; }
+.kpi-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--text3); }
+.kpi-value {
+  font-family: var(--font-display); font-size: 34px; font-weight: 800;
+  letter-spacing: -.025em; line-height: 1; margin-top: 7px; font-variant-numeric: tabular-nums;
+}
+.kpi-value.kpi-value-text { font-size: 26px; padding-top: 5px; }
+.kpi-sub { font-size: 12px; margin-top: 7px; color: var(--text3); }
+
+/* ── Chart ── */
+.analysis-tab-note { color: var(--text3); font-size: 12px; line-height: 1.5; margin: -4px 0 14px; max-width: 720px; }
+.chart-container { height: 560px; position: relative; }
+
+/* ── Table view ── */
+.table-toggle {
+  background: transparent; border: 0; color: var(--text3); cursor: pointer;
+  font: inherit; font-size: 12px; margin-top: 14px; padding: 4px 0;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.table-toggle:hover { color: var(--text); }
+.table-toggle svg { width: 12px; height: 12px; transition: transform .15s ease; }
+.table-toggle[aria-expanded="true"] svg { transform: rotate(90deg); }
+.table-wrap { margin-top: 10px; max-width: 560px; }
+.table-wrap[hidden] { display: none; }
+table { border-collapse: collapse; width: 100%; }
+th {
+  color: var(--text3); font-size: 11px; font-weight: 600; letter-spacing: .05em;
+  text-transform: uppercase; text-align: left; padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--border2);
+}
+th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td { border-bottom: 1px solid var(--border); color: var(--text2); font-size: 13px; padding: 7px 10px 7px 0; }
+td.td-main { color: var(--text); font-weight: 500; }
+
+/* ── Footer: disclaimer + CTA ── */
+.demo-footer { border-top: 1px solid var(--border); margin-top: 44px; padding-top: 22px; }
+.demo-disclaimer { color: var(--text3); font-size: 12px; line-height: 1.55; max-width: 720px; }
+.demo-cta { display: flex; align-items: center; gap: 18px; margin-top: 24px; flex-wrap: wrap; }
+.demo-cta-copy { color: var(--text2); font-size: 13px; line-height: 1.5; max-width: 520px; }
+.demo-cta-copy em { font-style: italic; }
+.cta-button {
+  background: var(--navy-800); border: 1px solid var(--navy-800); border-radius: var(--radius);
+  color: #fff; cursor: pointer; font: inherit; font-weight: 600; font-size: 13px;
+  min-height: 32px; padding: 8px 18px; white-space: nowrap;
+}
+.cta-button:hover { background: #16304F; }
+
+@media (max-width: 960px) {
+  .page-inner { padding: 32px 24px 80px; }
+  .demo-controls { grid-template-columns: 1fr 1fr; }
+  .kpi-grid { grid-template-columns: 1fr; gap: 22px; }
+  .chart-container { height: 520px; }
+}
+@media (max-width: 560px) {
+  .demo-controls { grid-template-columns: 1fr; }
+}
+
+/* ── Screening adequacy ── */
+.scr-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; max-width: 920px; margin-bottom: 8px; }
+.scr-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 4px; }
+.scr-name { font-size: 13px; font-weight: 600; color: var(--text); }
+.scr-elig { font-size: 11px; color: var(--text3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.scr-ctl { display: flex; align-items: center; gap: 10px; }
+.scr-ctl input[type="range"] { flex: 1; accent-color: var(--navy-800); margin: 0; }
+.scr-pct { width: 58px; border: 1px solid var(--border2); border-radius: var(--radius); background: var(--surface); color: var(--text); font: inherit; padding: 5px 7px; text-align: right; font-variant-numeric: tabular-nums; }
+.scr-pct-sign { color: var(--text3); font-size: 12px; }
+.scr-tag { font-size: 9.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--text3); border: 1px solid var(--border); border-radius: 999px; padding: 2px 8px; white-space: nowrap; }
+.scr-tag.custom { color: var(--accent); border-color: var(--accent); }
+.scr-reset { background: none; border: 0; color: var(--text3); cursor: pointer; font: inherit; font-size: 12px; padding: 2px 0; margin-bottom: 18px; text-decoration: underline; text-underline-offset: 2px; }
+.scr-reset:hover { color: var(--text); }
+.chart-container-scr { height: 300px; }
+.scr-footnote { color: var(--text3); font-size: 11.5px; line-height: 1.55; max-width: 760px; margin-top: 14px; }
+@media (max-width: 960px) {
+  .scr-rows { grid-template-columns: 1fr; }
+  .chart-container-scr { height: 280px; }
+}
+</style>
+</head>
+<body>
+<div class="page-inner">
+
+  <div class="page-header">
+    <div class="detail-header">
+      <span class="detail-dot" aria-hidden="true"></span>
+      <h1 class="page-title">Cancer<span class="demo-badge">Interactive demo</span></h1>
+    </div>
+    <div class="page-sub">Estimate the cancer burden hiding in your population.</div>
+  </div>
+
+  <section class="page-gap-section" aria-label="Your population inputs">
+    <div class="section-label">Your population</div>
+    <div class="demo-controls">
+      <label>
+        <span>Member population</span>
+        <input type="text" id="input-members" inputmode="numeric" autocomplete="off" value="10,000">
+        <small>Employees + dependents</small>
+      </label>
+      <label>
+        <span>Industry</span>
+        <select id="input-preset"></select>
+        <small>Age distribution by industry</small>
+      </label>
+      <label>
+        <span>% Female</span>
+        <input type="text" id="input-female" inputmode="numeric" autocomplete="off" value="50">
+      </label>
+      <label>
+        <span>% Male</span>
+        <input type="text" id="input-male" inputmode="numeric" autocomplete="off" value="50">
+      </label>
+    </div>
+    <div class="preset-description" id="preset-description"></div>
+  </section>
+
+  <div class="kpi-grid" aria-label="Expected cancer summary">
+    <div class="kpi-card">
+      <div class="kpi-label">Expected new cases / year</div>
+      <div class="kpi-value" id="kpi-total">—</div>
+      <div class="kpi-sub">All cancer types combined</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Expected cases per 1,000 members</div>
+      <div class="kpi-value" id="kpi-per-thousand">—</div>
+      <div class="kpi-sub">Annual incidence, age/sex-adjusted</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Largest expected type</div>
+      <div class="kpi-value kpi-value-text" id="kpi-top-type">—</div>
+      <div class="kpi-sub" id="kpi-top-sub"></div>
+    </div>
+  </div>
+
+  <section class="page-gap-section">
+    <div class="section-label">Expected new cancer cases by type, per year</div>
+    <div class="analysis-tab-note">SEER age/sex-adjusted incidence applied to your population profile. Expected new cases per year.</div>
+    <div class="chart-container" id="incidence-chart" role="img" aria-label="Expected new cancer cases by type, per year"></div>
+    <button type="button" class="table-toggle" id="table-toggle" aria-expanded="false" aria-controls="table-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      View as table
+    </button>
+    <div class="table-wrap" id="table-wrap" hidden>
+      <table aria-label="Expected new cancer cases by type">
+        <thead><tr><th>Cancer type</th><th class="num">Expected cases / year</th><th class="num">Per 100,000 members</th></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="page-gap-section" aria-label="Screening adequacy">
+    <div class="section-label">Screening adequacy</div>
+    <div class="analysis-tab-note">Recommended cancer screenings for this population, using the same age/sex profile as above. Rates start at national averages — if you know your plan's screening rates, enter them and the picture updates live.</div>
+
+    <div class="kpi-grid" aria-label="Screening adequacy summary">
+      <div class="kpi-card">
+        <div class="kpi-label">Screening gaps</div>
+        <div class="kpi-value" id="scr-kpi-gaps">—</div>
+        <div class="kpi-sub">Missed screenings across the five recommended tests</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Average screening rate</div>
+        <div class="kpi-value" id="scr-kpi-avg">—</div>
+        <div class="kpi-sub" id="scr-kpi-avg-sub">Eligible-weighted, all five screenings</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Largest gap</div>
+        <div class="kpi-value kpi-value-text" id="scr-kpi-top">—</div>
+        <div class="kpi-sub" id="scr-kpi-top-sub"></div>
+      </div>
+    </div>
+
+    <div class="scr-rows" id="scr-rows"></div>
+    <button type="button" class="scr-reset" id="scr-reset">Reset to national averages</button>
+
+    <div class="chart-container chart-container-scr" id="screening-chart" role="img" aria-label="Screened members versus screening gap by cancer type"></div>
+
+    <div class="scr-footnote" id="scr-footnote"></div>
+  </section>
+
+  <div class="demo-footer">
+    <div class="demo-disclaimer">
+      Estimates apply published SEER incidence rates to an illustrative population profile. They are directional
+      planning figures, not predictions for any specific group and not medical or actuarial advice. Industry
+      profiles are illustrative composites modeled on BLS workforce age data.
+    </div>
+    <div class="demo-cta">
+      <div class="demo-cta-copy">
+        In Cipher AutoKey, this chart shows your <em>observed</em> cases against these expected values —
+        from your own claims, in minutes.
+      </div>
+      <button type="button" class="cta-button">See Cipher in action</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+'use strict';
+/* ── Reference data (embedded verbatim from the AutoKey cancer_incidence pack) ── */
+const DATA = {"meta":{"source":"Cipher AutoKey reference pack cancer_incidence (SEER age/sex-specific incidence rates per 100,000 person-years, cancer_incidence_by_category_v3)","generated":"2026-07-23","notes":"Missing age buckets in the source pack are zero-rate and filled with 0. Sex-specific cancers carry only one sex key."},"ageBuckets":["Less than 1 year","1-4 years","5-9 years","10-14 years","15-19 years","20-24 years","25-29 years","30-34 years","35-39 years","40-44 years","45-49 years","50-54 years","55-59 years","60-64 years","65-69 years","70-74 years","75-79 years","80-84 years","85+ years"],"cancerLabels":{"Bladder":"Bladder cancer","Brain & CNS":"Brain & CNS cancer","Breast":"Breast cancer","Cervical":"Cervical cancer","Colorectal":"Colorectal cancer","Esophageal":"Esophageal cancer","Head & Neck":"Head & neck cancer","Kidney":"Kidney cancer","Leukemia":"Leukemia","Liver":"Liver cancer","Lung":"Lung cancer","Lymphoma":"Lymphoma","Melanoma":"Melanoma","Myeloma":"Myeloma","Other/Rare":"Other / rare cancers","Ovarian":"Ovarian cancer","Pancreatic":"Pancreatic cancer","Prostate":"Prostate cancer","Stomach":"Stomach cancer","Testicular":"Testicular cancer","Thyroid":"Thyroid cancer","Uterine":"Uterine cancer"},"ratesPer100k":{"Bladder":{"F":[0.0,0.0,0.0,0.0,0.0622,0.1466,0.2407,0.4345,0.8206,1.3973,2.4894,5.7908,10.3599,17.3428,26.6596,39.8419,54.4397,65.0087,71.5103],"M":[0.0,0.0,0.0,0.0,0.104,0.271,0.4654,0.94,1.925,3.7373,7.8719,15.7244,32.4583,61.7483,105.212,160.3784,239.1272,298.1899,348.3102]},"Brain & CNS":{"F":[3.4649,4.1387,3.3064,2.7635,1.8911,1.6894,2.5144,2.861,3.2765,3.6199,4.4911,5.6535,8.0016,9.9434,12.5477,15.8351,17.728,17.4933,13.9839],"M":[3.4916,4.2211,3.4901,2.97,2.4089,2.3593,2.9343,3.9157,4.3823,5.0193,6.3904,8.448,11.4847,14.9488,18.9562,22.0901,25.7865,27.9776,25.002]},"Breast":{"F":[0.0,0.0,0.0,0.0,0.2219,1.7366,10.9397,31.489,66.226,135.8093,204.6577,239.8412,273.1133,341.5511,425.0752,479.273,473.185,425.8136,320.6298],"M":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]},"Cervical":{"F":[0.0,0.0,0.0,0.0,0.0734,0.5032,3.9616,11.3938,14.2895,15.5672,14.4383,12.8003,12.3624,11.5423,10.5612,10.8553,10.4771,10.258,7.8821]},"Colorectal":{"F":[0.0,0.0,0.1463,0.7268,1.4773,2.234,3.7457,6.5552,11.5394,19.4057,33.0926,56.2277,54.6438,69.3345,91.7131,114.0565,146.5551,189.9729,215.5851],"M":[0.0,0.0,0.1121,0.6398,1.1027,1.8347,3.2268,6.4421,12.1171,22.159,39.4841,71.1567,78.9147,103.7461,135.0169,157.3221,193.9331,236.7668,269.6338]},"Esophageal":{"F":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0813,0.2001,0.3631,0.7881,1.6304,3.3017,4.9768,6.4959,8.1561,9.6341,11.8534,11.8956],"M":[0.0,0.0,0.0,0.0,0.0,0.0,0.1185,0.2806,0.7542,1.5443,3.2677,6.9216,13.2535,21.6958,30.0573,37.3608,41.8263,45.4966,41.7232]},"Head & Neck":{"F":[0.0,0.0,0.1172,0.2697,0.473,0.6211,1.1605,1.7165,2.6178,4.0176,6.4373,11.1468,17.1435,22.2228,25.2499,28.7034,32.4271,34.987,33.7564],"M":[0.0,0.0,0.1209,0.2192,0.3903,0.5584,1.1319,1.9159,3.6699,8.0293,17.5569,33.4451,55.0264,74.3333,88.759,94.5946,96.1124,97.205,88.3047]},"Kidney":{"F":[1.184,1.9847,0.6936,0.203,0.2454,0.574,1.2016,2.7332,5.1302,8.8931,12.9067,17.4638,24.0225,32.0134,42.2171,48.9952,53.452,51.233,41.4932],"M":[1.8729,1.8196,0.5016,0.1713,0.1908,0.5901,1.3827,3.4567,7.7784,14.8023,23.7004,34.6081,49.6178,66.987,88.4507,101.8558,113.3566,107.1115,88.2995]},"Leukemia":{"F":[4.4849,8.5577,4.1534,3.2326,2.5355,2.4689,2.7256,3.3113,4.311,5.5889,7.5281,10.9773,15.9743,22.4426,32.1966,42.6332,56.3972,66.1326,68.6619],"M":[4.5709,10.1205,4.972,4.111,4.2669,3.4346,3.5244,4.0477,5.3689,6.9826,10.0837,15.5843,24.1428,36.221,52.8077,75.5121,103.3616,129.8581,137.5093]},"Liver":{"F":[1.2796,0.5452,0.1483,0.1007,0.1522,0.2182,0.2881,0.463,0.8332,1.4058,2.2222,4.6228,9.2848,16.4644,23.923,26.0953,32.1645,34.324,30.5161],"M":[1.7567,0.8246,0.1379,0.0881,0.1684,0.2185,0.396,0.7504,1.2284,2.4019,5.7215,14.3348,32.7438,55.3952,73.2385,67.6237,69.1189,71.0638,61.9153]},"Lung":{"F":[0.0,0.0,0.0,0.0,0.1469,0.3072,0.5716,1.1554,2.4445,5.6483,14.0139,33.0923,74.2766,125.0327,181.2943,256.3243,329.7593,333.2979,237.6927],"M":[0.3462,0.0,0.0,0.0642,0.1188,0.2515,0.4741,1.0895,2.0944,5.4364,12.0658,30.6128,74.4399,139.2387,220.5461,312.6491,416.3146,448.9362,397.6711]},"Lymphoma":{"F":[0.0,0.5919,0.8704,2.0106,4.5454,6.3239,7.2288,7.3576,8.4067,10.1464,13.8302,20.1637,27.3152,37.7943,53.8123,68.8325,89.0438,98.3392,85.1007],"M":[0.0,1.1215,2.0299,3.1563,5.486,7.0959,7.7419,8.9737,10.503,13.0294,17.7954,25.7655,37.5933,52.4046,73.8755,99.704,135.0044,156.2281,155.1201]},"Melanoma":{"F":[0.0,0.0,0.0962,0.2493,0.88,3.1534,6.3767,11.0045,14.0127,17.3184,21.1427,26.3548,31.3028,39.2106,46.9144,51.8831,57.5212,63.0103,62.0507],"M":[0.0,0.0,0.0801,0.1928,0.4679,1.3035,2.5489,5.3397,8.3041,11.9751,17.7549,27.2987,41.4377,60.6288,87.8683,120.3609,159.0543,188.4488,208.4446]},"Myeloma":{"F":[0.0,0.0,0.0,0.0,0.0,0.0,0.1014,0.3536,1.0632,2.3435,4.2599,7.3418,10.508,16.236,23.4475,29.9962,38.8076,42.0248,30.5741],"M":[0.0,0.0,0.0,0.0,0.0,0.0,0.1201,0.4536,1.1659,2.6395,5.3739,9.1837,14.875,22.3598,34.1391,44.3964,57.506,68.5785,60.4969]},"Other/Rare":{"F":[6.7074,2.3874,1.3445,2.3688,2.5924,3.0416,4.0354,5.8397,8.3416,12.24,17.502,25.067,34.2473,47.2321,64.3587,84.0122,106.0014,126.2606,128.7855],"M":[5.9739,2.2541,1.5196,2.6693,3.5428,3.2942,4.8972,6.5836,8.8244,11.2049,15.5917,21.955,31.1869,43.8375,64.4489,89.8995,131.1239,171.6044,194.1014]},"Ovarian":{"F":[0.0,0.1193,0.2699,0.9116,1.4291,1.8902,2.7008,3.6158,5.5053,8.4638,12.9291,18.108,21.5979,26.1903,29.5301,34.866,39.6993,39.0192,34.6635]},"Pancreatic":{"F":[0.0,0.0,0.0,0.1715,0.335,0.4232,0.5982,0.8772,1.5657,2.9659,5.2637,10.1391,17.8335,28.3586,43.495,58.6039,78.2787,92.2724,97.4352],"M":[0.0,0.0,0.0,0.0,0.1273,0.1764,0.2954,0.6753,1.5419,3.4665,7.117,13.7059,24.5932,38.9508,58.1124,77.9124,99.6685,112.7509,113.9001]},"Prostate":{"M":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0843,0.5701,5.8371,28.8304,109.6078,251.2925,440.4562,693.1571,727.2577,686.4044,527.3246,423.3336]},"Stomach":{"F":[0.0,0.0,0.0,0.0,0.0932,0.2995,0.5344,1.2172,2.4584,3.7553,5.3938,7.5568,9.3111,12.2224,16.6004,20.8074,25.9952,30.7056,31.9684],"M":[0.0,0.0,0.0,0.0,0.0887,0.2185,0.5506,1.1143,2.222,3.8402,5.956,9.3654,15.2522,22.4721,31.5291,41.1624,54.3106,62.5308,63.6918]},"Testicular":{"M":[0.8674,0.3094,0.0799,0.2676,3.6358,11.189,15.664,15.3036,12.6261,8.91,5.6412,4.1371,3.2059,2.0467,1.6828,1.257,0.9288,0.9895,0.9605]},"Thyroid":{"F":[0.0,0.0,0.1503,1.5411,5.4555,11.4008,18.2393,25.4804,30.0116,33.7535,34.1305,34.4072,33.4145,30.6563,32.218,29.4307,24.2872,17.9848,10.6719],"M":[0.0,0.0,0.0917,0.4034,1.1622,2.4709,3.8505,5.7377,7.8443,9.3398,10.6782,12.2587,13.5158,16.1025,18.4865,19.1395,18.6464,14.45,10.5123]},"Uterine":{"F":[0.0,0.0,0.0,0.0,0.0,0.5906,2.3755,6.1702,11.142,17.7702,28.2371,48.6839,77.404,102.3261,114.9936,113.4557,98.0017,80.527,50.8247]}},"agePresets":[{"key":"national","label":"National average workforce","description":"Balanced employer book of business. Mirrors the overall U.S. commercial workforce with a typical share of dependents.","weightsPct":[0.8,3.61,5.02,5.52,5.22,5.92,8.43,9.14,9.44,9.34,9.04,8.94,8.43,6.83,2.51,1.0,0.5,0.2,0.1]},{"key":"tech","label":"Technology & professional services","description":"Younger, professional workforce (software, engineering, consulting, finance). Median employee mid-30s, fewer dependents.","weightsPct":[0.92,3.47,4.29,3.98,3.27,6.33,12.76,14.08,13.06,10.61,8.37,6.73,5.31,4.08,1.63,0.61,0.31,0.1,0.1]},{"key":"manufacturing","label":"Manufacturing & industrial","description":"Older, tenured hourly workforce (plants, logistics, energy, construction trades). Weighted toward ages 45-64.","weightsPct":[0.7,3.19,4.79,5.59,5.29,4.89,6.39,7.39,8.38,9.38,10.38,11.18,10.58,8.18,2.4,0.8,0.3,0.1,0.1]},{"key":"retail","label":"Retail & hospitality","description":"Young, high-turnover workforce (stores, restaurants, hospitality). Heavy 15-34 concentration, fewest dependents.","weightsPct":[0.6,2.4,3.2,3.4,7.79,13.19,12.39,10.59,9.19,8.19,7.59,6.99,6.19,5.0,2.0,0.8,0.3,0.1,0.1]},{"key":"healthcare_edu","label":"Healthcare & education","description":"Hospital systems, provider groups, schools, universities. Mid-career skew with an above-average share of family dependents.","weightsPct":[0.8,3.61,5.41,6.21,5.61,4.61,7.01,8.22,9.02,9.42,9.62,9.62,8.82,7.01,3.01,1.2,0.5,0.2,0.1]},{"key":"public_retiree","label":"Public sector & retiree-heavy","description":"Government, utilities, unions, plans with pre-65 retirees. Oldest profile, meaningful 65+ membership.","weightsPct":[0.5,2.4,3.8,4.6,4.4,3.8,5.2,6.2,7.4,8.6,9.6,10.4,10.6,9.6,6.4,3.6,1.6,0.8,0.5]}],"defaults":{"members":10000,"pctFemale":50,"preset":"national"}};
+
+/* ── State ── */
+const state = { members: 10000, pctFemale: 50, preset: 'national' };
+
+/* ── Compute ─────────────────────────────────────────────────────────────────
+   expected[cancer] = Σ over buckets b and sexes s of
+     members · weight[b] · share(s) · rate[cancer][s][b] / 100,000
+   Mirrors the app's cancer_incidence_chart aggregate with members = person-years
+   (annual view). Weights are normalized by their actual sum. */
+function computeExpected() {
+  const preset = DATA.agePresets.find(p => p.key === state.preset);
+  const sum = preset.weightsPct.reduce((a, b) => a + b, 0);
+  const weights = preset.weightsPct.map(w => w / sum);
+  const shares = { F: state.pctFemale / 100, M: 1 - state.pctFemale / 100 };
+  const rows = Object.entries(DATA.ratesPer100k).map(([short, bySex]) => {
+    let expected = 0;
+    for (const sex of ['F', 'M']) {
+      const rates = bySex[sex];
+      if (!rates) continue;
+      for (let b = 0; b < weights.length; b++) {
+        expected += state.members * weights[b] * shares[sex] * rates[b] / 100000;
+      }
+    }
+    return { short, label: DATA.cancerLabels[short], expected };
+  });
+  // App behavior: sort descending, Other/Rare always last.
+  rows.sort((a, b) => b.expected - a.expected);
+  const rest = rows.filter(r => r.short !== 'Other/Rare');
+  const other = rows.filter(r => r.short === 'Other/Rare');
+  return [...rest, ...other];
+}
+
+/* ── Formatters ── */
+const fmt1 = v => Number(v).toLocaleString(undefined, { maximumFractionDigits: 1, minimumFractionDigits: v < 100 ? 1 : 0 });
+const fmtTotal = v => v >= 100
+  ? Math.round(v).toLocaleString()
+  : v.toLocaleString(undefined, { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+
+/* ── Chart (Chart.js, themed exactly like the app) ── */
+const theme = {
+  primary: '#1E3A5F', grid: '#E8EAED', muted: '#9CA0A8', text: '#6b7280',
+  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
+};
+Chart.defaults.font.family = theme.fontFamily;
+let chart = null;
+
+function mountChart(rows) {
+  const container = document.getElementById('incidence-chart');
+  container.innerHTML = '<canvas></canvas>';
+  chart = new Chart(container.querySelector('canvas'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.short),
+      datasets: [{
+        label: 'Expected cancer cases',
+        data: rows.map(r => Number(r.expected.toFixed(1))),
+        backgroundColor: theme.primary,
+        borderRadius: 0,
+      }],
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          titleFont: { family: theme.fontFamily },
+          bodyFont: { family: theme.fontFamily },
+          callbacks: {
+            label: ctx => ` ${ctx.parsed.x.toLocaleString(undefined, { maximumFractionDigits: 1 })} expected cases`,
+          },
+        },
+      },
+      scales: {
+        y: {
+          grid: { display: false },
+          ticks: { autoSkip: false, color: theme.muted, font: { family: theme.fontFamily, size: 11 } },
+        },
+        x: {
+          min: 0,
+          grid: { color: theme.grid },
+          ticks: {
+            color: theme.muted,
+            font: { family: theme.fontFamily, size: 11 },
+            callback: v => Number(v).toLocaleString(),
+          },
+        },
+      },
+    },
+  });
+}
+
+/* ── Render ── */
+function render() {
+  const rows = computeExpected();
+  const total = rows.reduce((a, r) => a + r.expected, 0);
+  const top = rows.reduce((a, r) => (r.short !== 'Other/Rare' && r.expected > a.expected ? r : a), { expected: -1 });
+
+  document.getElementById('kpi-total').textContent = fmtTotal(total);
+  document.getElementById('kpi-per-thousand').textContent =
+    (total / state.members * 1000).toLocaleString(undefined, { maximumFractionDigits: 1, minimumFractionDigits: 1 });
+  document.getElementById('kpi-top-type').textContent = top.expected > 0 ? top.short : '—';
+  document.getElementById('kpi-top-sub').textContent = top.expected > 0
+    ? `${top.expected.toLocaleString(undefined, { maximumFractionDigits: 1, minimumFractionDigits: 1 })} expected cases / year`
+    : '';
+
+  if (!chart) {
+    mountChart(rows);
+  } else {
+    chart.data.labels = rows.map(r => r.short);
+    chart.data.datasets[0].data = rows.map(r => Number(r.expected.toFixed(1)));
+    chart.update();
+  }
+
+  document.getElementById('table-body').innerHTML = rows.map(r => `
+    <tr>
+      <td class="td-main">${r.label}</td>
+      <td class="num">${r.expected.toLocaleString(undefined, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}</td>
+      <td class="num">${(r.expected / state.members * 100000).toLocaleString(undefined, { maximumFractionDigits: 1, minimumFractionDigits: 1 })}</td>
+    </tr>`).join('');
+
+  renderScreening();
+}
+
+/* ── Screening adequacy ─────────────────────────────────────────────────────
+   Eligibility applies USPSTF age/sex windows to the same normalized preset
+   weights as the incidence model (ages assumed uniform within a bucket for
+   partial overlaps). Lung additionally multiplies by a national estimate of
+   the share of 50-80-year-olds meeting the smoking-history criteria — see
+   the footnote.
+   Reference numbers (verified against primary sources, July 2026):
+   - USPSTF eligibility windows: breast B (2024, women 40-74, biennial);
+     cervical A (2018, women 21-65); colorectal A/B (2021, adults 45-75);
+     lung B (2021, adults 50-80 + 20 pack-years, current or quit <15y);
+     prostate C (2018, men 55-69, shared decision). uspreventiveservicestaskforce.org
+   - defaultRatePct — benchmarked on the UNDER-65 / commercially insured
+     population (employer plans), claims-measured where published:
+     breast 73 (NCQA HEDIS BCS-E national commercial average MY2023, women
+     50-74, claims/ECDS; healthcarestats.utah.gov/publications/hedis-commercial,
+     corroborated by NCQA Special Report Nov 2024 Table A3: 73.1% claims-only);
+     cervical 73 (NCQA HEDIS CCS commercial PPO MY2023, ages 21-64 — HMO 74%;
+     ncqa.org/blog/cervical-cancer-early-detection-is-key);
+     colorectal 56 (NCQA HEDIS COL-E national commercial average MY2023,
+     ages 45-75; ncqa.org/blog/ncqa-developing-hedis-measure-for-colorectal-cancer-screening-follow-up);
+     lung 19 (18.98% of privately insured USPSTF-eligible adults screened,
+     CDC BRFSS 2024, Burus et al. JAMA Intern Med 2026;
+     jamanetwork.com/journals/jamainternalmedicine/fullarticle/2848035 — no
+     under-65 stratum is published anywhere; no HEDIS lung measure exists yet);
+     prostate 30.3 (PSA within past year, men 50-64 — closest published
+     under-65 stratum — NHIS, Hall et al., pmc.ncbi.nlm.nih.gov/articles/PMC6093265)
+   - targetPct: Healthy People 2030 — breast 80.3 (C-05), cervical 79.2 (C-09),
+     colorectal 72.8 (C-07), lung 7.5 (C-03, older measure definition),
+     prostate none (verified: no HP2030 screening target exists). odphp.health.gov
+   - lung eligFracPct 16: share of US adults 50-80 meeting the smoking-history
+     criteria (Okon et al., Transl Cancer Res 2024; tcr.amegroups.org/article/view/86189) */
+const SCREENING = {
+  types: [
+    { key:'breast',     label:'Breast (mammography)', chartLabel:'Breast',     sex:'F',    ageMin:40, ageMax:74, defaultRatePct:73,   targetPct:80.3 },
+    { key:'cervical',   label:'Cervical',             chartLabel:'Cervical',   sex:'F',    ageMin:21, ageMax:65, defaultRatePct:73,   targetPct:79.2 },
+    { key:'colorectal', label:'Colorectal',           chartLabel:'Colorectal', sex:'both', ageMin:45, ageMax:75, defaultRatePct:56,   targetPct:72.8 },
+    { key:'lung',       label:'Lung (low-dose CT)',   chartLabel:'Lung',       sex:'both', ageMin:50, ageMax:80, defaultRatePct:19,   targetPct:7.5, eligFracPct:16 },
+    { key:'prostate',   label:'Prostate (PSA)',       chartLabel:'Prostate',   sex:'M',    ageMin:55, ageMax:69, defaultRatePct:30.3, targetPct:null },
+  ],
+  footnote: 'Eligibility follows current USPSTF recommendations: mammography, women 40–74; cervical, women 21–65; colorectal, adults 45–75; lung low-dose CT, adults 50–80 with a qualifying smoking history; prostate PSA, men 55–69 (individual decision). Lung eligibility assumes 16% of adults 50–80 meet the smoking-history criteria (20+ pack-years, current or quit within 15 years) — a national estimate; your population may differ. National average rates are benchmarked on the commercially insured, under-65 population: NCQA HEDIS commercial-plan averages, measurement year 2023 (breast, measured for ages 50–74; cervical; colorectal — claims-based), CDC BRFSS 2024 (lung — privately insured eligible adults), and CDC NHIS (prostate — PSA in the past year, men 50–64).',
+};
+
+const BUCKET_BOUNDS = [[0,1],[1,5],[5,10],[10,15],[15,20],[20,25],[25,30],[30,35],[35,40],[40,45],[45,50],[50,55],[55,60],[60,65],[65,70],[70,75],[75,80],[80,85],[85,100]];
+
+state.screenRates = {};
+SCREENING.types.forEach(t => { state.screenRates[t.key] = { pct: t.defaultRatePct, custom: false }; });
+
+function eligibleFor(t) {
+  const preset = DATA.agePresets.find(p => p.key === state.preset);
+  const sum = preset.weightsPct.reduce((a, b) => a + b, 0);
+  const shares = { F: state.pctFemale / 100, M: 1 - state.pctFemale / 100 };
+  const sexShare = t.sex === 'both' ? 1 : shares[t.sex];
+  const lo = t.ageMin, hi = t.ageMax + 1; // inclusive age range -> [lo, hi)
+  let elig = 0;
+  for (let b = 0; b < BUCKET_BOUNDS.length; b++) {
+    const b0 = BUCKET_BOUNDS[b][0], b1 = BUCKET_BOUNDS[b][1];
+    const overlap = Math.max(0, Math.min(hi, b1) - Math.max(lo, b0)) / (b1 - b0);
+    if (overlap > 0) elig += state.members * (preset.weightsPct[b] / sum) * overlap;
+  }
+  return elig * sexShare * ((t.eligFracPct == null ? 100 : t.eligFracPct) / 100);
+}
+
+let scrChart = null;
+function mountScreeningChart(rows) {
+  const container = document.getElementById('screening-chart');
+  container.innerHTML = '<canvas></canvas>';
+  // Vertical stacked columns (matches the app's screening view), with the
+  // screening-rate % drawn above each column via a small inline plugin —
+  // "bars show member counts; labels show screening compliance".
+  const rateLabels = {
+    id: 'scrRateLabels',
+    afterDatasetsDraw(chart) {
+      const rates = chart.$scrRates || [];
+      const meta = chart.getDatasetMeta(1); // Gap dataset — top of the stack
+      const ctx = chart.ctx;
+      ctx.save();
+      ctx.fillStyle = '#3E4452';
+      ctx.font = '600 11px ' + theme.fontFamily;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      rates.forEach((r, i) => { const bar = meta.data[i]; if (bar) ctx.fillText(r, bar.x, bar.y - 5); });
+      ctx.restore();
+    },
+  };
+  scrChart = new Chart(container.querySelector('canvas'), {
+    type: 'bar',
+    plugins: [rateLabels],
+    data: {
+      labels: rows.map(r => r.chartLabel),
+      datasets: [
+        { label: 'Screened', data: rows.map(r => Math.round(r.screened)), backgroundColor: theme.primary, borderRadius: 0 },
+        { label: 'Gap', data: rows.map(r => Math.round(r.gap)), backgroundColor: '#C0392B', borderRadius: 0 },
+      ],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: { top: 18 } },
+      plugins: {
+        legend: { display: true, position: 'bottom', labels: { boxWidth: 12, boxHeight: 12, color: theme.text, font: { family: theme.fontFamily, size: 11 } } },
+        tooltip: {
+          titleFont: { family: theme.fontFamily },
+          bodyFont: { family: theme.fontFamily },
+          callbacks: { label: ctx => ` ${ctx.dataset.label}: ${Math.round(ctx.parsed.y).toLocaleString()} members` },
+        },
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { autoSkip: false, color: theme.muted, font: { family: theme.fontFamily, size: 11 } } },
+        y: { stacked: true, min: 0, grid: { color: theme.grid }, ticks: { color: theme.muted, font: { family: theme.fontFamily, size: 11 }, callback: v => Number(v).toLocaleString() } },
+      },
+    },
+  });
+  scrChart.$scrRates = rows.map(r => r.pct + '%');
+}
+
+function renderScreening() {
+  const rows = SCREENING.types.map(t => {
+    const elig = eligibleFor(t);
+    const pct = state.screenRates[t.key].pct;
+    const screened = elig * pct / 100;
+    return Object.assign({}, t, { elig, pct, screened, gap: elig - screened, axisLabel: t.chartLabel + ' — ' + pct + '%' });
+  });
+  const totalElig = rows.reduce((a, r) => a + r.elig, 0);
+  const totalScreened = rows.reduce((a, r) => a + r.screened, 0);
+  const totalGap = rows.reduce((a, r) => a + r.gap, 0);
+  const top = rows.reduce((a, r) => (r.gap > a.gap ? r : a), { gap: -1 });
+
+  document.getElementById('scr-kpi-gaps').textContent = Math.round(totalGap).toLocaleString();
+  document.getElementById('scr-kpi-avg').textContent = totalElig > 0 ? (totalScreened / totalElig * 100).toFixed(1) + '%' : '—';
+  document.getElementById('scr-kpi-top').textContent = top.gap > 0 ? top.chartLabel : '—';
+  document.getElementById('scr-kpi-top-sub').textContent = top.gap > 0 ? Math.round(top.gap).toLocaleString() + ' eligible members not screened' : '';
+
+  rows.forEach(r => {
+    const el = document.getElementById('scr-elig-' + r.key);
+    if (el) el.textContent = Math.round(r.elig).toLocaleString() + ' eligible members';
+  });
+
+  if (!scrChart) {
+    mountScreeningChart(rows);
+  } else {
+    scrChart.data.labels = rows.map(r => r.chartLabel);
+    scrChart.data.datasets[0].data = rows.map(r => Math.round(r.screened));
+    scrChart.data.datasets[1].data = rows.map(r => Math.round(r.gap));
+    scrChart.$scrRates = rows.map(r => r.pct + '%');
+    scrChart.update();
+  }
+}
+
+(function buildScreeningControls() {
+  const wrap = document.getElementById('scr-rows');
+  wrap.innerHTML = SCREENING.types.map(t => `
+    <div class="scr-row">
+      <div class="scr-head"><span class="scr-name">${t.label}</span><span class="scr-elig" id="scr-elig-${t.key}"></span></div>
+      <div class="scr-ctl">
+        <input type="range" min="0" max="100" step="0.1" value="${t.defaultRatePct}" id="scr-range-${t.key}" aria-label="${t.label} screening rate">
+        <input type="text" inputmode="numeric" autocomplete="off" value="${t.defaultRatePct}" id="scr-pct-${t.key}" class="scr-pct" aria-label="${t.label} screening rate percent"><span class="scr-pct-sign">%</span>
+        <span class="scr-tag" id="scr-tag-${t.key}">National avg</span>
+      </div>
+    </div>`).join('');
+
+  SCREENING.types.forEach(t => {
+    const range = document.getElementById('scr-range-' + t.key);
+    const pct = document.getElementById('scr-pct-' + t.key);
+    const tag = document.getElementById('scr-tag-' + t.key);
+    function set(v, isDefault) {
+      const n = Math.round(Math.min(100, Math.max(0, v)) * 10) / 10;
+      state.screenRates[t.key] = { pct: n, custom: !isDefault };
+      range.value = String(n);
+      if (document.activeElement !== pct) pct.value = String(n);
+      tag.textContent = isDefault ? 'National avg' : 'Your rate';
+      tag.classList.toggle('custom', !isDefault);
+    }
+    range.addEventListener('input', () => { set(parseFloat(range.value), false); pct.value = range.value; debouncedRender(); });
+    pct.addEventListener('input', () => {
+      const n = parseFloat(String(pct.value).replace(/[^0-9.]/g, ''));
+      if (Number.isFinite(n)) { set(n, false); debouncedRender(); }
+    });
+    pct.addEventListener('blur', () => { pct.value = String(state.screenRates[t.key].pct); render(); });
+  });
+
+  document.getElementById('scr-reset').addEventListener('click', () => {
+    SCREENING.types.forEach(t => {
+      state.screenRates[t.key] = { pct: t.defaultRatePct, custom: false };
+      document.getElementById('scr-range-' + t.key).value = String(t.defaultRatePct);
+      document.getElementById('scr-pct-' + t.key).value = String(t.defaultRatePct);
+      const tag = document.getElementById('scr-tag-' + t.key);
+      tag.textContent = 'National avg';
+      tag.classList.remove('custom');
+    });
+    render();
+  });
+
+  document.getElementById('scr-footnote').textContent = SCREENING.footnote;
+
+  // Average of the four HP2030 targets (breast 80.3, cervical 79.2,
+  // colorectal 72.8, lung 7.5) ≈ 60% — the same average-target line the
+  // AutoKey app shows. Prostate has no HP2030 screening target.
+  const targets = SCREENING.types.map(t => t.targetPct).filter(v => v != null);
+  const targetAvg = Math.round(targets.reduce((a, b) => a + b, 0) / targets.length);
+  document.getElementById('scr-kpi-avg-sub').textContent = 'Eligible-weighted · Healthy People 2030 target average ' + targetAvg + '%';
+})();
+
+/* ── Inputs ── */
+const membersInput = document.getElementById('input-members');
+const presetSelect = document.getElementById('input-preset');
+const femaleInput = document.getElementById('input-female');
+const maleInput = document.getElementById('input-male');
+const presetDescription = document.getElementById('preset-description');
+
+presetSelect.innerHTML = DATA.agePresets
+  .map(p => `<option value="${p.key}">${p.label}</option>`).join('');
+presetSelect.value = state.preset;
+
+function updatePresetDescription() {
+  const preset = DATA.agePresets.find(p => p.key === state.preset);
+  presetDescription.textContent = preset ? preset.description : '';
+}
+
+let debounceTimer = null;
+function debouncedRender() {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(render, 150);
+}
+
+function parseMembers(raw) {
+  const n = parseInt(String(raw).replace(/[^0-9]/g, ''), 10);
+  return Number.isFinite(n) ? Math.min(5000000, Math.max(100, n)) : null;
+}
+
+membersInput.addEventListener('input', () => {
+  const n = parseMembers(membersInput.value);
+  if (n !== null) { state.members = n; debouncedRender(); }
+});
+membersInput.addEventListener('blur', () => {
+  membersInput.value = state.members.toLocaleString();
+  render();
+});
+
+function bindSexInput(input, otherInput, isFemale) {
+  input.addEventListener('input', () => {
+    const n = parseInt(String(input.value).replace(/[^0-9]/g, ''), 10);
+    if (!Number.isFinite(n)) return;
+    const pct = Math.min(100, Math.max(0, n));
+    state.pctFemale = isFemale ? pct : 100 - pct;
+    otherInput.value = String(100 - pct);
+    debouncedRender();
+  });
+  input.addEventListener('blur', () => {
+    input.value = String(isFemale ? state.pctFemale : 100 - state.pctFemale);
+    render();
+  });
+}
+bindSexInput(femaleInput, maleInput, true);
+bindSexInput(maleInput, femaleInput, false);
+
+presetSelect.addEventListener('change', () => {
+  state.preset = presetSelect.value;
+  updatePresetDescription();
+  render();
+});
+
+/* ── Table toggle ── */
+const tableToggle = document.getElementById('table-toggle');
+const tableWrap = document.getElementById('table-wrap');
+tableToggle.addEventListener('click', () => {
+  const open = tableWrap.hidden;
+  tableWrap.hidden = !open;
+  tableToggle.setAttribute('aria-expanded', String(open));
+});
+
+/* ── Init ── */
+updatePresetDescription();
+render();
+</script>
+</body>
+</html>
