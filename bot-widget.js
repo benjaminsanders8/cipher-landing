@@ -1,4 +1,4 @@
-/* Cipher Health Economist — chat widget.
+/* Cipher AI assistant — chat widget.
    Self-contained: injects its own styles and DOM, talks to /api/chat.
    Conversation persists across pages for the browser session. */
 (function () {
@@ -8,7 +8,7 @@
 
   var BOOKING = 'https://calendar.app.google/orMtDRpkcFJMM4xY7';
   var GREETING =
-    "I'm Cipher's **Health Economist** — an AI assistant grounded in peer-reviewed research on healthcare costs, prices, and employer plans.\n\nTo be clear: I'm a research assistant, not the Cipher product. The product is our claims-analytics platform — it turns your claims data into cost and savings analysis, and you can [see it in action](/demo).\n\nAsk me why healthcare costs what it does, what the evidence says employers can do about it, or what Cipher does. For personal medical questions, talk to your clinician — that's not my lane.";
+    "I'm Cipher's **AI assistant**, grounded in peer-reviewed research on healthcare costs, prices, and employer plans.\n\nTo be clear: I'm not the Cipher product. The product is our claims-analytics platform — it turns your claims data into cost and savings analysis, and you can [see it in action](/demo).\n\nAsk me why healthcare costs what it does, what the evidence says employers can do about it, or what Cipher does. For personal medical questions, talk to your clinician — that's not my lane.";
   var CHIPS = [
     'Why do hospital prices vary so much?',
     "What's driving employer health costs?",
@@ -89,7 +89,7 @@
   var panel = document.createElement('div');
   panel.id = 'cbot-panel';
   panel.setAttribute('role', 'dialog');
-  panel.setAttribute('aria-label', 'Cipher Health Economist chat');
+  panel.setAttribute('aria-label', 'Cipher AI assistant chat');
   panel.innerHTML =
     '<div class="cbot-head"><div><div class="cbot-head-t">Ask Cipher&#39;s AI</div>' +
     '<div class="cbot-head-s">Research assistant — the product is our claims-analytics platform</div></div>' +
@@ -145,6 +145,7 @@
       history.forEach(function (m) { add(m.role, m.content); });
     } else {
       addChips();
+      msgs.scrollTop = 0; // fresh open: show the greeting from its top
     }
   }
 
