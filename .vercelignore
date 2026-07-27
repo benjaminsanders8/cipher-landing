@@ -4,3 +4,4 @@ serve.js
 package.json
 package-lock.json
 .claude/
+bot/

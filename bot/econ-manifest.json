@@ -1,0 +1,381 @@
+{
+ "note": "Drive files already distilled into bot/knowledge-econ.md. The weekly refresh (bot/REFRESH.md) digests only files absent from this map.",
+ "folderId": "1yyfefcj2t5hioP0NofoVVA0JzwkIdk_x",
+ "digested": {
+  "12EhT8_4iIwuzL26iNd5ol3fRfUZ4d5sj": {
+   "title": "ESI Spending Burdens Across the Income Distribution - Compensation and Benefits Review 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1e2Bph-rf6ObwRKtrBn9tOSXiEbgzGMuC": {
+   "title": "Overturned Claim Denials on External Appeal - JAMA Internal Medicine 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1mDQtFTCfvvNLxVxb0b5pMiHAvh9H29KP": {
+   "title": "Cross-Validation of Insurer and Hospital Price Transparency Data - AJMC 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "120ijdUCmv_meNBdT1MkciUavHn4t9Mfb": {
+   "title": "Commercial Cardiology Price Variation Across Insurers - JAMA Network Open 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1p-TYkjt01igouQDeUbfyjnQrllqhaY_K": {
+   "title": "Hospital Cash Prices vs Commercial Negotiated Rates - Health Affairs 2023",
+   "digestedAt": "2026-07-27"
+  },
+  "1HBAB-6DVOiJNnbYZfBQShBVh_0xNz8KJ": {
+   "title": "Nonprofit and System-Affiliated Hospital Price Growth - Health Affairs Scholar 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1tQN0QeIvz9mB3iomzh5MBI6LO7eyBMah": {
+   "title": "Hospital Payment Caps for State Employee Health Plans - Health Affairs 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1NjSI7ZZilOpoGkRz3xt2C9maTr5T0iOa": {
+   "title": "Hospital Markups on Physician-Administered Drugs - NEJM 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1-3fm31TUVUk8Rpt84kN-d7f3LTz6i1Jh": {
+   "title": "Alternative Funding Programs for Specialty Drugs - JMCP 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1uTOI2jtnXpayfhJjd-7bLGyUow2AOnX3": {
+   "title": "Low-Value Care State Variation Commercial and MA - Health Affairs 2022",
+   "digestedAt": "2026-07-27"
+  },
+  "1mWSgTnNdSLm9Fys1pC2BpdeTo5vAHRds": {
+   "title": "Prescription Drug Coverage Restrictions Trends - Health Affairs Scholar 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1h_M6bfT4quPpKyDGII8nH41yM4ZqWwuT": {
+   "title": "Narrow and Tiered Provider Networks - Medical Care Research and Review 2022",
+   "digestedAt": "2026-07-27"
+  },
+  "1J9KhM_g9eHJz_QfWTpYw7Bzu0Tb8FTOi": {
+   "title": "All-or-Nothing Hospital System Contracts and Commercial Prices - JHMHP 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1TV8drB7s6FBYa66Q9KtMPyzYXcMaJBZg": {
+   "title": "Cost-Sharing Elimination and Follow-Up Colonoscopy - Current Medical Research and Opinion 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1RvU8RTW4yYEOrffQ3GQGsMFAontp9eb4": {
+   "title": "Commercial Health Plan Disenrollment and Reenrollment - JAMA Network Open 2022",
+   "digestedAt": "2026-07-27"
+  },
+  "1lT7vLK5JE5-9NejHR4wAWKt0mOGPRa4T": {
+   "title": "Commercial vs Medicare Advantage Hospital Prices Same Insurer - Health Affairs 2023",
+   "digestedAt": "2026-07-27"
+  },
+  "1FQuh2eBoS7gQkl3ugAxV__lqqbSqcjHQ": {
+   "title": "GLP-1 Weight-Loss Coverage and Employer Plan Utilization - JAMA Health Forum 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1GDA5_4o1EOmRlcf7_cAY_swRX_9SjaU-": {
+   "title": "State Cost Growth Benchmarks and Commercial Spending - JAMA Network Open 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "10oEjSSipEZDCie0UBFA55ptN92AkihDb": {
+   "title": "Direct-to-Consumer Generic Drug Prices vs Commercial Insurance - Annals of Internal Medicine 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1cwm-9cMR8hO0vKcow2TiZmtMy32IoY0u": {
+   "title": "Dynamic Copay Plans and AI Price Transparency - Health Affairs Scholar 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1P-Gl-Lm632uD_epg7HWygCmECXhm-RzT": {
+   "title": "Self-Insured vs Fully Insured Prices - Health Affairs 2023",
+   "digestedAt": "2026-07-27"
+  },
+  "1HjffCuqUUnRtD5mANFxiH1KmUG7m89hT": {
+   "title": "Out-of-Pocket Costs for Privately Insured Cancer Patients - JAMA Network Open 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1nRu2TznfMZdzj2QwdP3WF1Qt9FzmxWCD": {
+   "title": "Extreme Heat Health Care Use and Costs by Payer - Health Affairs 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1OCP21_EAqDypWWIIRCnjElecXqSeGofw": {
+   "title": "Private Equity Acquisitions in Primary Care Utilization and Spending - Health Affairs 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1Vja44E2pmYPgQ3UwZhbFkPTM2HTqDXDU": {
+   "title": "Variation in Commercial Insurer Prior Authorization Rules - Annals of Internal Medicine 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1Ssm4qusZlD-V6mueJCVgt7GKPDbD3Lhd": {
+   "title": "Copay Accumulators and Maximizers in Mental Health - J Market Access Health Policy 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1T85mcv2ugtpVpMSL-3p6No1iFs7N3owr": {
+   "title": "Out-of-Network Behavioral Health Use in Commercial Plans - Psychiatric Services 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "167Q_a2aptN3xoIHJsrT789wZE-OWfcET": {
+   "title": "Freestanding Emergency Departments and Medical Debt - JAMA Network Open 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1vwDbUAt0yIo9_qG3AjBXBhfajKQOwS5_": {
+   "title": "Insurer Size and Bargaining Power on Commercial Hospital Prices - Health Economics 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1qQye37Nk5e-3xHopU1DfvLjHUCFsZGPv": {
+   "title": "Self-Insured Employer IVF Coverage Under State Mandates - J Assist Reprod Genet 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1ismpJwIbMUhntkNFYte8GJ2uDbUB9Dwx": {
+   "title": "Bagging Oncology Drugs and Patient Costs - JAMA Network Open 2023",
+   "digestedAt": "2026-07-27"
+  },
+  "160cPAYPeG0yKX9AFD7nxn7KhqweD0LJL": {
+   "title": "Oregon Hospital Payment Cap Effects on Hospitals - Health Affairs 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1wwmCvYYWr1onDEf099kwUq7vNksxeL8M": {
+   "title": "ESI Premium Growth and Earnings Inequality - JAMA Network Open 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1i8SMHKRrCq5I9c3OljtgOOkHapnjkzSs": {
+   "title": "Medical Loss Ratio in the Large Group Market - AJMC 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "15xaCozctME60wA2n5iODO6R0cg-Ra1yR": {
+   "title": "Provider Directory Inaccuracies Persist - Health Affairs Scholar 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1dXP71phuQGZ4huoMzR2B9CGV8nRkMJOb": {
+   "title": "Infusion Therapy Site of Care Costs Among Commercially Insured - JMCP 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1Skxtbnhis89-boLRC3bBk74w0uTh-VUQ": {
+   "title": "Care Coordination for High-Cost Commercially Insured Patients - JAMA Network Open 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1sWto7qq9x__EVYr7wt6fec31FoY2afYb": {
+   "title": "GLP-1 Persistence Trends Among Commercially Insured - JMCP 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1GkATOzS1CHteWihSIWjcXAc6-Pt8EyBf": {
+   "title": "Primary Care Spending Geographic Variation Commercial - JAMA Network Open 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1PRnpIp0tBQxjvrB2RLqSK4HHFqlDxakt": {
+   "title": "Claim Denial Burdens in Private Insurance - Health Affairs 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1SvnGraGGkdm18s_boHJBVMstxl3jAz75": {
+   "title": "Cancer Care Price Transparency and Commercial Prices - Value in Health 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1ZK8-t4MB1B8DUZU_0ayPhwcEHi8CFjiE": {
+   "title": "Insulin Out-of-Pocket Caps and Employer-Sponsored Insurance - Health Services Research 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1VwUKckBn2IgYbVmYHaLM5y7wkUAL55PN": {
+   "title": "Hospital Inpatient Upcoding and Commercial Payments - Health Affairs 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1Ae5ERfqvJdlpt0mGG7RCp1_h_P6n31iR": {
+   "title": "Air Ambulance Prices and the No Surprises Act - JAMA Network Open 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1iVjeIXX9TnKTV6t-0iNcfxsaxGrBLExN": {
+   "title": "No Surprises Act IDR Outcomes for Emergency Services - Health Affairs Scholar 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1TBgVMJ8AdyKHx72XYBGbgrVb-KgXRyZ8": {
+   "title": "Dialysis Market Consolidation and Commercial Prices - JAMA Health Forum 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1nvNlCFuRDAWOpbd5TezyX7qgFn52Tao5": {
+   "title": "Copay Maximizers and Total Patient Liability - JMCP 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1FTZSBVMXY5Dtlz3rKf0LtdAfo9_AW_4M": {
+   "title": "ED Visit Facility Fees by Payer Type - JAMA Network Open 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1lcqNHyjN9EloF7TkwMs6ReWKHYEnlsKP": {
+   "title": "Commercial HOPD vs ASC Price Differentials by Insurer - Health Affairs 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1bJJKvdazSgTBy34L2pvVxDybAKi9W0cc": {
+   "title": "Racial Disparities in Maternity Out-of-Pocket Spending - JAMA Health Forum 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1z4GMDT4Nz1iOKV8-mqMU-i_8MJjibYqr": {
+   "title": "Stop-Loss Regulation and Small Employer Self-Funding - AJHE 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1NEi686kOvseomXWl2n3WgobJ4d32AC5E": {
+   "title": "National Health Spending 7.2 Percent Utilization - Health Affairs 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1Vnef8PjATHrIa2GH7DzWTV-BpuErGZPB": {
+   "title": "Cross-Market Hospital Mergers and Commercial Prices - Health Services Research 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1Jdf1cvmQSPfhYzhRElqEFfjHKT43zWkM": {
+   "title": "Manufacturer Drug Coupon Use and Costs - JAMA 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1VtBz4pjIBzcssIHM_9_wp27VARvgpWDu": {
+   "title": "Medicare Advantage Broker Payments - JAMA Internal Medicine 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1RUBUFNVnbsGDtknKPEJTJI_FzpuxgTGE": {
+   "title": "Marketplace vs Employer Small-Group Prices - Health Affairs 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1b4eacQgdca9olaYUlM6UlEqaixdVVxAM": {
+   "title": "Medicare ACO Spillovers to Commercial Insurance - AJMC 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1ZWUqcXLlYBQRV2ThkPsDLXrbGvDa73S0": {
+   "title": "Health Plan Drug Coverage Timeliness Post-FDA Label - Health Affairs Scholar 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1FVcIyRJFgxnQZTC-XiRtXflZGW0XG1rl": {
+   "title": "Commercial Imaging Price Variation - Health Affairs Scholar 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1eHoxu3Ib3FLq-Vf_MwwHwv_69DFXVJt2": {
+   "title": "Commercial PT Price Variation - JAMA Internal Medicine 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1M73Qz4zJWZlRC7TjMCIY24IvlJvEy0Gh": {
+   "title": "NY Ground Ambulance Balance Billing Prices - Health Services Research 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "10IcbDklKqoOTa-doq1b8xwandvqS8Dx_": {
+   "title": "CT Outpatient Facility Fee Ban Hospital Finances - Health Affairs Scholar 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1plNTkr6qWld-NbWmnEmXyhMEobO_KQpU": {
+   "title": "Hospital Margins on Oncology Biosimilars - JAMA 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1p9amng6N_LapTjJBqBxCIf_OOOQhyedh": {
+   "title": "Telemedicine Adoption and Total Medical Spending - JAMA Network Open 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1DMpNSINmPydHotRJRM_Ymke8t2fG2fuO": {
+   "title": "Rural Hospital Bypass by Commercially Insured Patients - JAMA Network Open 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1zsLaXA4RqTcPT3H6HnaLGd2263MH5cq4": {
+   "title": "Optum ASC Acquisitions and Commercial Prices - Health Affairs 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "13C3a4spV0qS5p4vgYIKOKqFlhls751Z9": {
+   "title": "Commercial Plan Coverage of Cell and Gene Therapies - JAMA 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1eGP2uXaKR5fQiClCFwvolx1kodns5wUV": {
+   "title": "Commercial Price Variation General Surgery - JAMA Network Open 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1VEo57xdx1ecv_ZApjwIIPapLIocn0vDa": {
+   "title": "PBM Market Concentration by State and Payer - JAMA Health Forum 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "14yB_SV5v0J2E53gja8P7bYjOyRVnmI9t": {
+   "title": "340B and Commercial Drug Prices - Health Services Research 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1eJN7iONlbAx1UwFFGUAiFzpUk_9-G950": {
+   "title": "Substate Commercial-to-Medicare Price Ratios - JAMA Health Forum 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1sl4G57znCpOM4TvFKwMJc1ogWFCpn_bd": {
+   "title": "Patient Cost Sharing for Hospital Care - Health Affairs 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1d-wz1FCzpi8Ze0Mafng30XvVusB7cWvU": {
+   "title": "Behavioral Health Benefit ROI for Employers - JAMA Network Open 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1qmuAyK_1dbYwVt3qnKzO-w19N8x4Lhqa": {
+   "title": "Hospital Price Markup and Surgical Outcomes - JAMA Surgery 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1X7ZBN3cXTEHvyitijldfBzezNtzHwA7s": {
+   "title": "Prior Authorization Delays and Denials of Branded Medications - JAMA Health Forum 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "16a2LU1PjRvVHsmNFmLhKyTSpSHNARIlO": {
+   "title": "AI in Health Insurance Utilization Review - Health Affairs 2026",
+   "digestedAt": "2026-07-27"
+  },
+  "1MNzC-lU6_lEVDdec8tSBCL44AK721GMc": {
+   "title": "RI Affordability Standards Hospital Prices - Health Affairs 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "15iJ1zvrDbjcbV9x585WtPzhqDyfMqfyG": {
+   "title": "Employer-Sponsored Insurance Hourly Service Sector - JAMA Health Forum 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1txwfQnki3VSpNtMOxMITDvX8aMC9T19j": {
+   "title": "UnitedHealthcare Pays Optum Providers More - Health Affairs 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1beKehXbYtSWJxurdXMQhSb6CSWauNNV9": {
+   "title": "Within-Hospital Price Gaps Across National Insurers - JAMA Network Open 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1MEEfd51S6P2WoZEB8txX5wVzwipkz7Sy": {
+   "title": "Biosimilar Competition and Patient OOP Costs - JAMA Health Forum 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1Y3Vn2Map7u53fdCtg49kuPQ6XEYCKhoh": {
+   "title": "Site-Neutral Payment Commercial Savings - Health Affairs Scholar 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "14DGYK2cIxJxJoYFC9OfNtCusAofxyYmw": {
+   "title": "Distributional and Seasonal Commercial Insurance Spending - AJMC 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1Umn2HAW4dFqNT8US-VsyjPJ7Zy26tGWG": {
+   "title": "Insurer Acquisitions of Physician Practices - Health Services Research 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1B8AKVXxzU_ottUJCRsg4MHFAVpwzEOpW": {
+   "title": "No Surprises Act - Patient Spending BMJ 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1SDgcqbgZIzqab4NiMPbo9Oxo_nUfL0TP": {
+   "title": "Hospital and PE Specialty Physician Prices - Health Affairs 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1Ei_gchzCt40RaK-LuJpWXtqmEyTyu1L6": {
+   "title": "PE Hospital Acquisitions Adverse Events 2023",
+   "digestedAt": "2026-07-27"
+  },
+  "18Icde9hrPzsC9gd5rgNgSOxGRZyFKcrE": {
+   "title": "HDHPs and Chronic Illness Care - JAMA Network Open 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1F9zMvK1XWSDugmWAMyp4t4ykJY8vlF15": {
+   "title": "Health Benefits 2025 - Employer Premiums and GLP-1 Coverage (KFF-style annual survey)",
+   "digestedAt": "2026-07-27"
+  },
+  "1joyyjpvQQiBOK-go1OJNn9oVyNWvq2fo": {
+   "title": "ASO Market Concentration and Insurer Profits - Health Affairs 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1Z7FMy9T9vVgND19SNiY_jIouytsh_e-k": {
+   "title": "RAND Hospital Price Transparency - Commercial vs Medicare Pricing 2024",
+   "digestedAt": "2026-07-27"
+  },
+  "1UqP6if2b7x7XfI-5JuqE4UpoN_CnLNPA": {
+   "title": "Understanding Health Care Price Variation - TiC Data 2025",
+   "digestedAt": "2026-07-27"
+  },
+  "1D8CwdFz4VCWsXnimTvp5v5XNb7RDUbU2": {
+   "title": "US Medical Prices and Insurance Premiums 1999-2024",
+   "digestedAt": "2026-07-27"
+  }
+ },
+ "excluded": {
+  "1leZ7BhT5yAuO4u6OwVuoYbU1fCDYVkyo": "conversation log, not an article \u2014 never digest"
+ }
+}
