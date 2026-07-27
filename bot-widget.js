@@ -8,7 +8,7 @@
 
   var BOOKING = 'https://calendar.app.google/orMtDRpkcFJMM4xY7';
   var GREETING =
-    "I'm Cipher's **Health Economist** — an AI assistant grounded in peer-reviewed research on healthcare costs, prices, and employer plans.\n\nAsk me why healthcare costs what it does, what the evidence says employers can do about it, or what Cipher does. For personal medical questions, talk to your clinician — that's not my lane.";
+    "I'm Cipher's **Health Economist** — an AI assistant grounded in peer-reviewed research on healthcare costs, prices, and employer plans.\n\nTo be clear: I'm a research assistant, not the Cipher product. The product is our claims-analytics platform — it turns your claims data into cost and savings analysis, and you can [see it in action](/demo).\n\nAsk me why healthcare costs what it does, what the evidence says employers can do about it, or what Cipher does. For personal medical questions, talk to your clinician — that's not my lane.";
   var CHIPS = [
     'Why do hospital prices vary so much?',
     "What's driving employer health costs?",
@@ -22,6 +22,8 @@
     '#cbot-launch .cbot-dot::after{content:"";position:absolute;inset:0;background:#D97706;animation:cbotPulse 2.2s ease-out infinite;}',
     '@keyframes cbotPulse{0%{opacity:.55;transform:scale(1);}70%,100%{opacity:0;transform:scale(2.4);}}',
     '@media (prefers-reduced-motion:reduce){#cbot-launch .cbot-dot::after{animation:none;}}',
+    '#cbot-launch .cbot-l-short{display:none;}',
+    '@media (max-width:760px){#cbot-launch .cbot-l-long{display:none;}#cbot-launch .cbot-l-short{display:inline;}}',
     '#cbot-panel{position:fixed;right:22px;bottom:22px;z-index:85;width:min(400px,calc(100vw - 24px));height:min(600px,calc(100vh - 48px));background:#fff;border:1px solid #E5E7EB;box-shadow:0 30px 80px rgba(20,31,56,.4);display:none;flex-direction:column;font-family:Inter,"Segoe UI",sans-serif;}',
     '#cbot-panel.open{display:flex;}',
     '.cbot-head{background:#1B2A4A;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0;}',
@@ -78,16 +80,19 @@
   // --- DOM
   var launch = document.createElement('button');
   launch.id = 'cbot-launch';
-  launch.setAttribute('aria-label', 'Chat with the Cipher Health Economist (AI)');
-  launch.innerHTML = '<span class="cbot-dot" aria-hidden="true"></span>Chat with an AI Health Economist';
+  launch.setAttribute('aria-label', "Ask Cipher's AI assistant a question");
+  launch.innerHTML =
+    '<span class="cbot-dot" aria-hidden="true"></span>' +
+    '<span class="cbot-l-long">Questions before you book a meeting? Ask our AI assistant.</span>' +
+    '<span class="cbot-l-short">Ask our AI assistant</span>';
 
   var panel = document.createElement('div');
   panel.id = 'cbot-panel';
   panel.setAttribute('role', 'dialog');
   panel.setAttribute('aria-label', 'Cipher Health Economist chat');
   panel.innerHTML =
-    '<div class="cbot-head"><div><div class="cbot-head-t">Health Economist</div>' +
-    '<div class="cbot-head-s">AI assistant · grounded in published research</div></div>' +
+    '<div class="cbot-head"><div><div class="cbot-head-t">Ask Cipher&#39;s AI</div>' +
+    '<div class="cbot-head-s">Research assistant — the product is our claims-analytics platform</div></div>' +
     '<button class="cbot-x" aria-label="Close chat">×</button></div>' +
     '<div class="cbot-msgs" id="cbot-msgs"></div>' +
     '<div class="cbot-foot"><div class="cbot-inrow">' +
