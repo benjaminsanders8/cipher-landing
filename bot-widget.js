@@ -8,7 +8,7 @@
 
   var BOOKING = 'https://calendar.app.google/orMtDRpkcFJMM4xY7';
   var GREETING =
-    "I'm Cipher's **AI assistant**, grounded in peer-reviewed research on healthcare costs, prices, and employer plans.\n\nTo be clear: I'm not the Cipher product. The product is our claims-analytics platform — it turns your claims data into cost and savings analysis, and you can [see it in action](/demo).\n\nAsk me why healthcare costs what it does, what the evidence says employers can do about it, or what Cipher does. For personal medical questions, talk to your clinician — that's not my lane.";
+    "I'm here to be your **AI customer-support assistant**. Do you have any questions about the product? Would you like to [see it in action](/demo)? Or maybe you want to discuss healthcare costs and what you can do about it.\n\nFor personal medical questions, talk to your clinician — that's not my lane.";
   var CHIPS = [
     'Why do hospital prices vary so much?',
     "What's driving employer health costs?",
