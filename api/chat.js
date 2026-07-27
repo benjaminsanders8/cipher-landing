@@ -80,7 +80,7 @@ module.exports = async (req, res) => {
   // Server-side brevity reminder on every turn — models weigh the end of the
   // last message heavily, and this never reaches the visitor's history.
   messages[messages.length - 1].content +=
-    '\n\n<system-reminder>Reply in under 100 words — hard limit. One idea, at most two statistics with sources, no bullet lists, no sections, no headers. Finish the sentence you start. Close with the booking bridge or an offer to go deeper, not both.</system-reminder>';
+    '\n\n<system-reminder>Reply in under 100 words — hard limit. One idea, at most two statistics, no bullet lists, no sections, no headers. Every statistic must appear in your knowledge sections and be credited to the entry it actually comes from — when asked what a specific source says, use only that source’s entries, and if a number is not in your knowledge, say it qualitatively instead of estimating. Finish the sentence you start. Close with the booking bridge or an offer to go deeper, not both.</system-reminder>';
 
   const key = process.env.ANTHROPIC_API_KEY;
   if (!key) return send(res, 500, { error: 'assistant is not configured yet' });
