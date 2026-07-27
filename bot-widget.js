@@ -26,9 +26,7 @@
     '@media (max-width:760px){#cbot-launch .cbot-l-long{display:none;}#cbot-launch .cbot-l-short{display:inline;}}',
     '#cbot-panel{position:fixed;right:22px;bottom:22px;z-index:85;width:min(400px,calc(100vw - 24px));height:min(600px,calc(100vh - 48px));background:#fff;border:1px solid #E5E7EB;box-shadow:0 30px 80px rgba(20,31,56,.4);display:none;flex-direction:column;font-family:Inter,"Segoe UI",sans-serif;}',
     '#cbot-panel.open{display:flex;}',
-    '.cbot-head{background:#1B2A4A;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0;}',
-    '.cbot-head-t{font-family:"Space Mono",monospace;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;}',
-    '.cbot-head-s{font-size:10.5px;color:rgba(255,255,255,.55);margin-top:3px;letter-spacing:.04em;}',
+    '.cbot-head{background:#1B2A4A;color:#fff;padding:6px 10px;display:flex;align-items:center;justify-content:flex-end;flex-shrink:0;}',
     '.cbot-x{background:none;border:0;color:#fff;font-size:22px;cursor:pointer;line-height:1;padding:0 2px;}',
     '.cbot-msgs{flex:1;overflow-y:auto;padding:16px;background:#fff;position:relative;}',
     '.cbot-m{margin-bottom:12px;font-size:14.5px;line-height:1.55;max-width:88%;word-wrap:break-word;}',
@@ -91,9 +89,7 @@
   panel.setAttribute('role', 'dialog');
   panel.setAttribute('aria-label', 'Cipher AI assistant chat');
   panel.innerHTML =
-    '<div class="cbot-head"><div><div class="cbot-head-t">Ask Cipher&#39;s AI</div>' +
-    '<div class="cbot-head-s">Research assistant — the product is our claims-analytics platform</div></div>' +
-    '<button class="cbot-x" aria-label="Close chat">×</button></div>' +
+    '<div class="cbot-head"><button class="cbot-x" aria-label="Close chat">×</button></div>' +
     '<div class="cbot-msgs" id="cbot-msgs"></div>' +
     '<div class="cbot-foot"><div class="cbot-inrow">' +
     '<textarea id="cbot-in" rows="1" placeholder="Ask about healthcare costs…" aria-label="Your message"></textarea>' +
