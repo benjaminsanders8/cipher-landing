@@ -11,6 +11,7 @@ body{font-family:var(--sans);color:var(--gray);background:var(--bg);line-height:
 .wrap{max-width:1180px;margin:0 auto;padding:0 48px;}
 h1,h2,h3{color:var(--navy);line-height:1.15;letter-spacing:-.01em;font-family:var(--serif);}
 section{padding:120px 0;}
+section[id]{scroll-margin-top:88px;} /* anchor jumps must clear the sticky nav */
 .hl{border-bottom:3px solid var(--amber);padding-bottom:1px;}
 
 /* ---------- shared header pattern: mono eyebrow / serif headline / thin rule */
@@ -99,7 +100,7 @@ nav{position:sticky;top:0;background:var(--navy);border-bottom:1px solid rgba(25
 .dark{background:var(--navy);}
 /* two navy sections in a row stack their padding into one oversized band —
    drop the second one's top padding so the gap matches the usual rhythm */
-.dark + .dark{padding-top:0;}
+.dark + .dark{padding-top:0;scroll-margin-top:128px;}
 .dark .eyebrow-mono{color:var(--amber);}
 
 /* ---------- Who We Serve */
