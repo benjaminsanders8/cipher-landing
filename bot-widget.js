@@ -22,8 +22,6 @@
     '#cbot-launch .cbot-dot::after{content:"";position:absolute;inset:0;background:#D97706;animation:cbotPulse 2.2s ease-out infinite;}',
     '@keyframes cbotPulse{0%{opacity:.55;transform:scale(1);}70%,100%{opacity:0;transform:scale(2.4);}}',
     '@media (prefers-reduced-motion:reduce){#cbot-launch .cbot-dot::after{animation:none;}}',
-    '#cbot-launch .cbot-l-short{display:none;}',
-    '@media (max-width:760px){#cbot-launch .cbot-l-long{display:none;}#cbot-launch .cbot-l-short{display:inline;}}',
     '#cbot-panel{position:fixed;right:22px;bottom:22px;z-index:85;width:min(400px,calc(100vw - 24px));height:min(600px,calc(100vh - 48px));background:#fff;border:1px solid #E5E7EB;box-shadow:0 30px 80px rgba(20,31,56,.4);display:none;flex-direction:column;font-family:Inter,"Segoe UI",sans-serif;}',
     '#cbot-panel.open{display:flex;}',
     '.cbot-head{background:#1B2A4A;color:#fff;padding:6px 10px;display:flex;align-items:center;justify-content:flex-end;flex-shrink:0;}',
@@ -81,8 +79,7 @@
   launch.setAttribute('aria-label', "Ask Cipher's AI assistant a question");
   launch.innerHTML =
     '<span class="cbot-dot" aria-hidden="true"></span>' +
-    '<span class="cbot-l-long">Questions before you book a meeting? Ask our AI assistant.</span>' +
-    '<span class="cbot-l-short">Ask our AI assistant</span>';
+    'Questions? Ask our AI Assistant.';
 
   var panel = document.createElement('div');
   panel.id = 'cbot-panel';
