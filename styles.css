@@ -19,7 +19,7 @@ section{padding:120px 0;}
 .sec-title{font-size:clamp(34px,4.5vw,52px);font-weight:700;max-width:940px;}
 .sec-rule{border-top:1px solid var(--line);margin-top:36px;}
 .inline-wordmark{height:.84em;vertical-align:-.06em;display:inline-block;filter:drop-shadow(.6px 0 0 var(--navy)) drop-shadow(-.6px 0 0 var(--navy)) drop-shadow(0 .6px 0 var(--navy));}
-.hero-dark .sub strong{color:#fff;font-weight:700;display:block;white-space:nowrap;}
+.hero-dark .sub strong{color:#fff;font-weight:700;display:block;white-space:nowrap;margin-top:1.6em;text-align:center;}
 /* below ~520px the line is wider than the viewport — let it wrap instead of overflowing */
 @media(max-width:520px){.hero-dark .sub strong{white-space:normal;}}
 .dark .sec-title{color:#fff;}
