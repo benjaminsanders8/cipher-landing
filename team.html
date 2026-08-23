@@ -23,6 +23,8 @@
 <link rel="stylesheet" href="/styles.css">
 
 <style>
+  /* first block on the page — match the homepage hero's 100px gap under the nav */
+  #team{padding-top:100px;}
   .team{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
   @media(max-width:860px){.team{grid-template-columns:1fr;}}
   .founder{border:1px solid rgba(217,119,6,.6);padding:40px;background:transparent;}
@@ -55,7 +57,7 @@
   </div>
 </nav>
 
-<section class="dark">
+<section class="dark" id="team">
   <div class="wrap">
     <div class="eyebrow-mono">The Team</div>
     <div class="team">
