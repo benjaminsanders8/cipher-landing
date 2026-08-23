@@ -97,6 +97,9 @@ nav{position:sticky;top:0;background:var(--navy);border-bottom:1px solid rgba(25
 
 /* ---------- dark bands */
 .dark{background:var(--navy);}
+/* two navy sections in a row stack their padding into one oversized band —
+   drop the second one's top padding so the gap matches the usual rhythm */
+.dark + .dark{padding-top:0;}
 .dark .eyebrow-mono{color:var(--amber);}
 
 /* ---------- Who We Serve */
