@@ -21,8 +21,8 @@ section{padding:120px 0;}
 .inline-wordmark{height:.84em;vertical-align:-.06em;display:inline-block;filter:drop-shadow(.6px 0 0 var(--navy)) drop-shadow(-.6px 0 0 var(--navy)) drop-shadow(0 .6px 0 var(--navy));}
 .hero-dark .inline-wordmark,.dark .inline-wordmark,.cta .inline-wordmark{filter:brightness(0) invert(1);}
 .hero-dark .sub strong{color:#fff;font-weight:700;font-style:italic;display:block;white-space:nowrap;margin-left:208px;}
-/* the indent lines up with the end of "answers." only while .sub sits at its full 640px */
-@media(max-width:700px){.hero-dark .sub strong{margin-left:0;}}
+/* the indent only reads as deliberate while the first sentence holds one line */
+@media(max-width:916px){.hero-dark .sub strong{margin-left:0;}}
 /* below ~520px the line is wider than the viewport — let it wrap instead of overflowing */
 @media(max-width:520px){.hero-dark .sub strong{white-space:normal;}}
 .dark .sec-title{color:#fff;}
@@ -63,7 +63,7 @@ nav{position:sticky;top:0;background:var(--navy);border-bottom:1px solid rgba(25
 .hero-qs{font-size:clamp(36px,4.9vw,62px);color:#fff;font-weight:700;margin-bottom:38px;}
 .hero-qs .qline{display:flex;align-items:baseline;gap:24px;margin-bottom:12px;}
 .hero-qs .qnum{font-family:var(--mono);font-size:clamp(14px,1.6vw,18px);color:var(--amber);flex-shrink:0;letter-spacing:.12em;font-weight:700;}
-.hero-dark .sub{color:rgba(255,255,255,.75);max-width:640px;font-size:18px;margin-bottom:44px;}
+.hero-dark .sub{color:rgba(255,255,255,.75);max-width:820px;font-size:18px;margin-bottom:44px;}
 .btns{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
 .hero-foot{margin-top:auto;padding-top:80px;width:100%;}
 .hero-rule{border-top:1px solid var(--amber);margin-bottom:16px;}
