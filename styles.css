@@ -19,6 +19,7 @@ section{padding:120px 0;}
 .sec-title{font-size:clamp(34px,4.5vw,52px);font-weight:700;max-width:940px;}
 .sec-rule{border-top:1px solid var(--line);margin-top:36px;}
 .inline-wordmark{height:.84em;vertical-align:-.06em;display:inline-block;filter:drop-shadow(.6px 0 0 var(--navy)) drop-shadow(-.6px 0 0 var(--navy)) drop-shadow(0 .6px 0 var(--navy));}
+.hero-dark .inline-wordmark,.dark .inline-wordmark,.cta .inline-wordmark{filter:brightness(0) invert(1);}
 .hero-dark .sub strong{color:#fff;font-weight:700;font-style:italic;display:block;white-space:nowrap;margin-left:208px;}
 /* the indent lines up with the end of "answers." only while .sub sits at its full 640px */
 @media(max-width:700px){.hero-dark .sub strong{margin-left:0;}}
