@@ -260,6 +260,13 @@
 - Rhode Island hospitals lost an estimated ~$160 million per year in commercial revenue by 2022, with no measurable harm to quality or solvency found over the study period.
 - Employer angle: Lower negotiated prices upstream do not automatically become lower plan costs — self-insured employers must actively audit TPA/ASO fees, network arrangements, and pass-through to make sure price savings actually reach the plan.
 
+### Rhode Island Affordability Standards and Hospital-Affiliated Clinicians' Professional Fees (JAMA Network Open 2026)
+- Testing whether hospitals evaded Rhode Island's facility-fee cap by raising unregulated professional fees, the authors used 2013–2019 commercial claims (Health Care Cost Institute) on 2.29 million enrollees, 5.36 million evaluation-and-management services, and 10,352 hospital-affiliated clinicians, with five other New England states as comparators.
+- Office-visit professional fees for Rhode Island's hospital-affiliated clinicians grew $1.55 less per service per year than peers in neighboring states (95% CI, −$2.02 to −$1.08); the baseline gap widened from $105.80 vs $141.70 per visit in 2013 to $111.10 vs $154.00 in 2019.
+- Vertical integration also grew more slowly, not faster: the share of hospital-affiliated clinicians rose from 32.0% to 44.4% in Rhode Island versus 46.4% to 62.8% elsewhere, about 0.4 percentage points per year slower.
+- Estimated effect on hospital-affiliated clinicians' E&M revenue was roughly $541,000 less over 2014–2019; results held across robustness checks, though excluding Massachusetts attenuated the estimate.
+- Employer angle: The standard objection to hospital price caps — that hospitals just raise something else — did not hold in the one state with a decade-long track record, so savings from facility-fee regulation appear real rather than recycled, and the same leverage shift is what tiered networks and reference-based pricing try to buy privately.
+
 ### UnitedHealthcare Pays Optum Providers More Than Non-Optum Providers (Health Affairs 2025)
 - Using 2024 CMS Transparency-in-Coverage data across 14 high-volume CPT codes (~385,000 billing encounters), UnitedHealthcare paid its sister Optum providers 17% more relative to what competing insurers paid those same Optum providers.
 - In markets where UnitedHealthcare held 25%+ commercial market share, that relative premium jumped to 61%.
@@ -392,6 +399,13 @@
 - Hospitals facing less competition used DRG contracting less often overall, but where they did, were more likely to anchor prices to their own list prices.
 - Employer angle: "What's our discount off charges?" and "what percent of Medicare are we paying?" are not the same question — a charge-based contract hands the hospital control of the benchmark itself, and roughly a quarter of commercial DRG contracts are built that way.
 
+### High Prevalence of Ghost Rates in Transparency in Coverage Data (Health Affairs Scholar 2025)
+- Across Transparency in Coverage files from 61 insurers (CVS/Aetna, Cigna, UnitedHealthcare, and 58 Blue Cross Blue Shield plans), 91.8% of posted negotiated rates — 3.15 billion of 3.43 billion — were "ghost rates," prices for services the listed provider group would never perform.
+- At the individual-provider level the share was worse: 95.4% of 117.7 billion provider-code pairs were ghosts, with a median insurer at 95.7% and a range across insurers of 16.8% to 98.6%.
+- Restricting to the 100 most common billing codes, which account for 56.5% of claims volume, still left 70.3% of rates as ghosts at the group level (range 6.3% to 89.8%) and 75.5% at the provider level; those codes are only 1.1% of the rows in the files.
+- The author's proposed fix is a single added field — prior-year paid-claim volume per provider group and code — which would let any analyst drop zero-volume rows; the author works for a firm selling cleaned transparency data, a disclosed conflict.
+- Employer angle: A self-funded employer benchmarking its TPA's contracted rates from raw TiC files is averaging mostly fiction, so any "negotiated rate" analysis — including one a vendor or consultant presents — should come with an explicit answer to how the ghost rates were filtered out.
+
 ## Hospitals & Consolidation
 
 ### Private Equity Acquisitions in Primary Care: Changes in Utilization, Spending, and Workforce (Health Affairs 2026)
@@ -484,6 +498,20 @@
 - Regressing each state's premium growth on its spending growth produced an R² of 0.91, and dividing national premium growth by national spending growth gave the same 91% figure; the pattern held separately in the large-group, small-group, and individual markets.
 - 2024 premiums ranged from $5,603 per person in Massachusetts to $11,438 in Alaska, and premium growth over the period from 10.9% (Massachusetts) to 163.8% (Mississippi).
 - Employer angle: Effort spent squeezing carrier margin targets a slice of the premium that is both small and already shrinking — the dollars are in claims, meaning provider prices, drug costs, and utilization. (The data cover fully insured business only, so ASO fees paid by self-insured employers are not captured.)
+
+### Who Pays for Rising Health Care Prices? Evidence from Hospital Mergers (NBER Working Paper 2024)
+- Using 304 horizontal hospital mergers completed 2010–2015 as a natural experiment, linked to commercial claims (Health Care Cost Institute), Form 5500 premium filings, and individual IRS tax records, merger-driven price increases passed through to employer health spending and then into premiums roughly dollar for dollar, with no offsetting shift of workers into high-deductible plans.
+- A 1% increase in health care prices reduced payroll at non-health-care employers by about 0.37% and headcount by a similar amount — meaning the cost was absorbed through job separations rather than pay cuts.
+- For every $1 of additional hospital revenue from a price increase, non-health labor income fell $1.33 to $1.69; job losses concentrated among workers earning $20,000–$100,000, with essentially no effect above $100,000.
+- Scaled up, the 304 mergers were associated with roughly $1.7 billion in forgone wages, 11,700 job losses, and 111 additional deaths in the following year; the 69 mergers that would have flagged under DOJ/FTC guidelines averaged about $26 million in economic damage each. (A working paper, not peer-reviewed at release; premium data come from fully insured filings.)
+- Employer angle: Provider consolidation is a labor cost, not just a benefits line — because flat per-head premiums make it a regressive head tax, hospital price growth lands hardest on middle-wage workers, which is the strongest available argument for employer-side levers like reference-based pricing, site-of-care steering, and direct contracting.
+
+### Consolidation of Hospital Affiliations With Group Purchasing Organizations (JAMA Health Forum 2026)
+- Comparing 5,008 US hospitals in 2014 with 4,760 in 2024 (AHA Annual Survey, 340B database, IQVIA), the combined share affiliated with Vizient, Premier, and HealthTrust rose from 61.7% to 84.1%; among the 3,877 hospitals present in both years the shift was nearly identical (64.3% to 84.5%).
+- Vizient nearly doubled from 23.0% to 43.4% of hospitals, largely through its acquisition of MedAssets (20.3% on its own in 2014); Premier grew from 22.1% to 23.7% and HealthTrust from 16.7% to 17.0%, while small GPOs slipped from 12.3% to 10.4%.
+- The three serve distinct segments: Vizient hospitals are larger, 62.8% nonprofit and 6.8% academic with median pharmacy expense of $7.976 million, while HCA-owned HealthTrust is 61.3% for-profit with the lowest median pharmacy spend ($3.044 million) and the tightest closed formularies (87.0%).
+- GPOs are funded by administrative fees paid by the manufacturers whose products win contracts — the same seller-pays structure as PBM rebates — and the study is descriptive, measuring affiliation rather than the prices GPOs actually negotiate.
+- Employer angle: Supplies and drugs are the hospital's second-largest cost category after labor, and three invisible intermediaries now set those contracts for more than four in five hospitals — so part of the cost base behind every negotiated hospital rate is shaped by a market employers cannot see and do not bid on.
 
 ## Pharmacy, PBMs & Specialty Drugs
 
@@ -657,6 +685,13 @@
 - The authors conclude that continuing current telemedicine coverage — relevant to the December 31, 2027 sunset of CMS flexibilities and to predeductible telehealth in HDHPs, now permanently permitted — is unlikely to meaningfully raise near-term spending.
 - Employer angle: The feared telehealth 'convenience visit' cost explosion has not materialized in nationwide data, so self-insured employers can maintain broad telemedicine and first-dollar HDHP telehealth coverage without expecting material spending increases, while monitoring the slightly higher (but statistically null) commercial point estimate.
 
+### Telehealth Payment Parity and Outpatient Service Utilization: Evidence From Privately Insured Workers (Health Affairs Scholar 2025)
+- Using Merative/MarketScan commercial claims for 2019–2021 covering 29,204 working-age adults and about 1.05 million person-months, the nine states that adopted telehealth payment parity at the pandemic's onset and kept it through 2021 were compared with never-adopting states in a difference-in-differences design.
+- Parity was associated with a 2.4-percentage-point higher probability of any telehealth visit in a month (post-period baseline 7.6%) and 0.064 more telehealth visits per person-month (post-period mean 0.110).
+- In-person visits fell only 0.034 per month and not significantly, so total outpatient visits rose 0.029 per person-month — telehealth acted as a partial, not full, substitute.
+- The effect landed on plans the laws do not govern: self-funded members saw 0.070 more telehealth and 0.041 more total outpatient visits per month, both significant, while fully insured members — the group state parity laws actually bind — showed no statistically distinguishable effect (a small subsample, about 54,000 person-months versus 338,000).
+- Employer angle: State insurance mandates can raise a self-funded plan's utilization even though ERISA exempts it, because providers build one telehealth workflow for every payer — so parity belongs on the trend-driver list for ERISA plans, and the open question is whether the added visits displace costlier care or simply add volume.
+
 ### Pricing and Insurance Networks in Outpatient Surgery Markets (The American Journal of Managed Care 2025)
 - Across 198,975 procedures at ambulatory surgery centers and 26,646 at hospital outpatient departments (RAND Round 4 commercial claims, 2018–2019, ages 19–64) covering arthroscopy, cataract, colonoscopy, and upper GI procedures, total allowed prices relative to an in-network ASC were $886 (79%) higher at an out-of-network ASC, $1,227 (109%) higher at an in-network HOPD, and $1,576 (140%) higher at an out-of-network HOPD.
 - An out-of-network ASC was still cheaper in total than an in-network hospital outpatient department.
@@ -700,6 +735,13 @@
 - Safety-net providers faced higher initial denial rates across all three service types (13.6% versus 9.2% on professional claims) and lower overturn rates, producing a final professional denial rate of 7.3% versus 4.5% — a gap that largely persisted after standardizing every provider group to the average payer mix.
 - The relationship was monotonic across all five quintiles of dual-eligible patient share; all rates are weighted by spending at standardized Medicare prices rather than by claim counts.
 - Employer angle: The overturn rate, not the initial denial rate, determines what actually goes unpaid — and because the safety-net gap survives payer-mix adjustment, contract terms such as appeal windows, site-of-care rules, and gold-carding deserve the same scrutiny in network negotiations as unit prices.
+
+### Formulary-Related Insurance Denials of Single-Source Branded Drugs in the United States (JAMA 2026)
+- Across roughly 2 million first-ever attempts by 1.17 million people to fill a single-source branded drug (IQVIA Formulary Impact Analyzer rejected-claims data, January 2018–September 2024; commercial was the largest segment at 0.84 million attempts), 68.0% of first fills were paid, 14.8% were rejected as excluded from the formulary, and 17.2% were rejected for prior authorization or step therapy — a 32.0% total rejection rate.
+- The rejection rate climbed from 24.3% in 2018 to 40.7% in 2024, a 67% relative increase, driven mainly by growth in utilization-management rejections rather than outright exclusions, with commercial and Medicaid managed care plans among the steepest risers.
+- Among rejected attempts, 38.6% ended with the original drug filled within 90 days, 13.0% with a different drug in the same class, and 48.4% with no fill of anything in that class — and those who did start treatment waited a mean of 12.2 days (SD 17.8).
+- Rejection rates varied enormously by class, from 85% for incretin-based weight-loss drugs down to 6.7% for oral anticoagulants; by payer they ran from 19.8% (Medicare Advantage drug plans) and 24.0% (stand-alone Part D) up to 48.7% (ACA marketplace) and 49.8% (Medicaid managed care).
+- Employer angle: Roughly one in six rejected first fills ends with no treatment in the class within three months, which is the access price of the formulary savings — and because most plan sponsors see only paid claims, asking the PBM for rejection and resolution rates by therapeutic class is the missing half of the picture.
 
 ## Networks & Access
 
@@ -885,6 +927,13 @@
 - The post-2015 decline was concentrated in patients 65 and older and in Medicare Supplemental coverage (−10.4% per year); every age group under 65 saw costs keep rising, with under-50s at +7.4% per year.
 - Sixteen-year average per-patient costs ranged from about $6,664 in Idaho to $15,624 in Kansas, more than a 2:1 spread.
 - Employer angle: The improvement in headline heart failure costs is a Medicare phenomenon that did not reach employer plans — for working-age members the growth engines are surgery and ED use, which is where site-of-care steering and outpatient chronic-care management apply.
+
+### Bundling Medical and Pharmacy Benefits: Impact on Medical Costs (Journal of Managed Care & Specialty Pharmacy 2026)
+- Using 2022–2023 claims from 194 self-funded employers at one Blues carrier (101 bundled, 93 carved out) with 187,821 propensity-matched member pairs, members whose pharmacy benefit was bundled with medical had $32.48 PMPM (7.5%) lower medical cost growth, concentrated in inpatient ($13.27 PMPM, 13.5%) and emergency department spending ($1.35 PMPM, 4.7%).
+- The result survived outlier trimming: capping annual costs at a $250,000 stop-loss-style attachment reduced the estimate to $22.10 PMPM (5.3%) and it remained significant, while a two-part model produced a larger $47.28 PMPM (11%).
+- The savings depended almost entirely on active care management — bundling was worth $39.28 PMPM (9%) for employers that bought the carrier's population health management program but a statistically insignificant $16.84 PMPM without it, and bundled members were 10.8% more likely to receive a nurse outreach.
+- Among 83,865 matched pairs with at least one of ten chronic conditions, bundling with the program saved $54.50 PMPM while bundling without it saved nothing ($1.78 PMPM, not significant). Pharmacy spend itself was not measured, and all five authors are employed by or consult for the carrier that sells both products.
+- Employer angle: The medical offset is worth roughly $250–500 per member per year against a carve-out PBM bid, but the mechanism is data reaching care managers rather than the contract structure itself — so an employer that carves out and feeds full pharmacy claims to its care-management vendor may capture most of it, and one that bundles without care management captures little.
 
 ## Industry Outlook & Delivery-System Economics (McKinsey)
 
