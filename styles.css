@@ -71,6 +71,14 @@ nav{position:sticky;top:0;background:var(--navy);border-bottom:1px solid rgba(25
 .hero-rule{border-top:1px solid var(--amber);margin-bottom:16px;}
 .fig-label{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:rgba(255,255,255,.55);text-transform:uppercase;}
 
+/* ---------- partner / credibility band (time-bound; self-contained so it can be removed cleanly) */
+.partner-band{padding:44px 0;background:var(--bg);border-bottom:1px solid var(--line);}
+.partner-inner{display:flex;align-items:center;gap:36px;}
+.partner-badge{width:132px;height:132px;flex-shrink:0;display:block;}
+.partner-band .eyebrow-mono{margin-bottom:8px;}
+.partner-cap{font-size:17px;color:var(--gray);max-width:640px;margin:0;}
+@media(max-width:600px){.partner-inner{flex-direction:column;align-items:flex-start;gap:18px;}}
+
 /* ---------- The Engine */
 .engine-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center;margin-bottom:96px;}
 .engine-text p{font-size:18px;}
