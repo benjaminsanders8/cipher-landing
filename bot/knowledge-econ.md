@@ -369,6 +369,34 @@
 - The authors found no evidence that these companies systematically moved practitioners out of network beyond a modest first-year uptick — the credible threat appeared to be leverage enough.
 - Employer angle: Anesthesia is a service line members cannot shop and plans cannot steer, and a facility's decision to outsource its anesthesia contracting — which the employer never sees or bids on — can move that line's spend by roughly a sixth.
 
+### Trends in Hospital Prices Paid by Private Health Plans Varied Substantially Across the US (Health Affairs 2022)
+- Using Medicare cost reports for 3,612 hospitals across 306 hospital referral regions (2012–2019), the RAND authors found the national commercial-to-Medicare price ratio rose only about 7 percentage points, reaching 180% in 2019 — but that stable average concealed large regional swings.
+- Among regions that started in the top price quartile, those with the biggest moves gained 38 points or lost 38 points on average; examples include Tacoma, WA (222% to 337%), Chico, CA (237% to 338%), and Gulfport, MS (267% down to 158%). Of 19 high-start regions with large increases, 11 were in California.
+- The changes came mainly from hospitals repricing relative to Medicare, not from patients shifting between cheaper and costlier hospitals.
+- Capping each region's growth at the 7-point national rise would have left the 2019 ratio at 164% instead of 180% — roughly $39 billion on $438 billion of 2019 private-insurer hospital spending.
+- Employer angle: Commercial hospital pricing is local and volatile, especially in already-expensive markets, so a national "180% of Medicare" figure says little about what an employer's own hospitals did — a Medicare-relative benchmark run on the plan's own claims is the only way to know.
+
+### Why Does the Cost of Employer-Sponsored Coverage Keep Rising? (Health Affairs Scholar 2024)
+- Over 1999–2023, family premiums for employer-sponsored insurance rose a cumulative 314% and workers' contributions 326%, far ahead of earnings and general inflation.
+- Comparing BLS price indices (January 2006 = 100), hospital service prices rose steadily and faster than both health-insurance and professional-services prices, with the hospital index reaching about 170 by late 2021 versus roughly 138 for insurance by mid-2022.
+- Insurer margins were consistently below hospital margins in most years and especially low in 2014–2016 after the ACA medical-loss-ratio rule took hold; in 2022 for-profit hospitals earned a 7.02% net margin while nonprofits posted −0.31% (down from 10.67% in 2021), a swing driven largely by investment losses.
+- The authors conclude high hospital prices are the core driver of premiums and that policies targeting hospital consolidation and pricing power would slow premium growth more directly than further regulation of insurer profits.
+- Employer angle: Because the MLR rule caps insurer margin as a share of premium, rising hospital prices pass straight through to what employers pay — so cost strategy should center on hospital price levels (network design, reference pricing, transparency) rather than on carrier margin alone.
+
+### Physician Practice Preferences and Healthcare Expenditures: Evidence from Commercial Payers (Journal of Health Economics 2026)
+- Replicating the Dartmouth-style "Cowboy vs. Comforter" physician-survey measures against roughly 55 million commercially insured lives in HCCI claims (heart-attack episodes, 2012–2018; average one-year post-AMI spend $79,152), the authors found practice style barely predicts commercial spending: a 0-to-100% Cowboy share predicted about 2% higher spending versus 17% in Medicare, and the High Follow-up effect's upper bound was 0.6% versus 36% in Medicare.
+- The mechanism is price running against practice style: a 100% Cowboy share was associated with about $5 lower paid per RVU (≈10% below the mean) and High Follow-up with $8 lower (≈16%), while Comforter share carried $7 higher (≈14%) and Low Follow-up $21 higher (≈42%) — commercial insurers pay less in aggressive markets and more in conservative ones.
+- Neither patient cost sharing nor the authors' claim-denial proxy varied with practice style; High Follow-up regions showed only about 5 extra days to claim payment (≈14% above the 36.4-day mean).
+- Aggressive style still meant worse care: higher High Follow-up share predicted lower same-day PCI rates and higher 30-day readmissions.
+- Employer angle: Medicare-derived geographic cost indices do not port to commercial populations, since contracted rates are negatively correlated with practice aggressiveness — employers should validate area factors and network-value scores against commercial claims, and treat unit price as a utilization lever, not just a cost per service.
+
+### Cash and Commercial Negotiated Prices of Physician-Administered Drugs in US Hospitals (The American Journal of Managed Care 2026)
+- Across 2,137 hospitals' May 2024 price-transparency files for the 20 highest-spending Part B physician-administered drugs, the hospital's own cash price was below its median commercial negotiated rate in 29% (pemetrexed) to 50% (rituximab + hyaluronidase) of hospitals, and below the lowest negotiated commercial rate in 7% (ranibizumab) to 20% (pembrolizumab) of hospitals.
+- The cash price beat the highest commercial rate in 58% to 81% of hospitals, reflecting how widely insurer-specific rates for the same drug diverge inside a single hospital (median of 9 to 21 commercial plans per drug-hospital pair).
+- Hospitals whose cash prices undercut their median commercial rate were disproportionately nonprofit, small, and rural; the authors flag 340B acquisition discounts as a plausible but untested driver.
+- All comparisons are within the same hospital, which sidesteps inconsistent drug-unit reporting across hospitals; the study is descriptive, uses posted prices rather than paid claims, and runs three pages as a research letter.
+- Employer angle: Medical-benefit drug markups are an under-negotiated contract term — the hospital's public cash price is a free, defensible floor for auditing infused-drug rates, and in high-deductible plans a member can literally pay more for having insurance on these claims.
+
 ## Price Transparency & Data
 
 ### Dynamic Copay Health Plans, AI-Enabled Price Transparency, and Member Experience (Health Affairs Scholar 2026)
@@ -405,6 +433,13 @@
 - Restricting to the 100 most common billing codes, which account for 56.5% of claims volume, still left 70.3% of rates as ghosts at the group level (range 6.3% to 89.8%) and 75.5% at the provider level; those codes are only 1.1% of the rows in the files.
 - The author's proposed fix is a single added field — prior-year paid-claim volume per provider group and code — which would let any analyst drop zero-volume rows; the author works for a firm selling cleaned transparency data, a disclosed conflict.
 - Employer angle: A self-funded employer benchmarking its TPA's contracted rates from raw TiC files is averaging mostly fiction, so any "negotiated rate" analysis — including one a vendor or consultant presents — should come with an explicit answer to how the ghost rates were filtered out.
+
+### Price Transparency in Healthcare: Bargaining Incentives and Patient Responses (Journal of Health Economics 2025)
+- Using New Hampshire's staggered rollout of procedure prices on the state HealthCost website as a natural experiment with 2010–2019 all-payer claims (mostly commercial), disclosed surgical procedures saw negotiated allowed amounts fall 5.1% and radiology procedures 9.1%; lab procedures showed no clear effect.
+- The reductions came from changed provider-insurer bargaining, not from patients shopping — high-priced providers lost leverage to hold out once rates were visible.
+- Savings spilled over to providers not listed on the website and to competitors in neighboring states.
+- Caveat noted in the file: the summary draws on the abstract and secondary descriptions, and declines are in negotiated allowed amounts rather than total spending or premiums.
+- Employer angle: Transparency pays off through contracts even if employees never shop, which makes price data useful in network and contracting decisions regardless of member engagement rates.
 
 ## Hospitals & Consolidation
 
@@ -512,6 +547,58 @@
 - The three serve distinct segments: Vizient hospitals are larger, 62.8% nonprofit and 6.8% academic with median pharmacy expense of $7.976 million, while HCA-owned HealthTrust is 61.3% for-profit with the lowest median pharmacy spend ($3.044 million) and the tightest closed formularies (87.0%).
 - GPOs are funded by administrative fees paid by the manufacturers whose products win contracts — the same seller-pays structure as PBM rebates — and the study is descriptive, measuring affiliation rather than the prices GPOs actually negotiate.
 - Employer angle: Supplies and drugs are the hospital's second-largest cost category after labor, and three invisible intermediaries now set those contracts for more than four in five hospitals — so part of the cost base behind every negotiated hospital rate is shaped by a market employers cannot see and do not bid on.
+
+### Price Effects of Vertical Integration and Joint Contracting Between Physicians and Hospitals (Health Affairs 2022)
+- In Massachusetts commercial claims (2013–2017, about 57,000 physician-year observations), affiliation with small and medium health systems rose from 19.5% to 32.8% of primary care physicians and from 26.1% to 37.8% of specialists.
+- Price increases scaled with system size: joining a medium system raised prices about 7.7% for primary care and 2.4% for specialists; a large system about 12.0% and 6.0%; the largest system about 15.7% and 7.0%. Small-system affiliation had no significant effect.
+- Most of the increase sat in the professional price itself — separate facility fees rose only modestly (about 4.9%, specialists in the largest system only) — and overall market HHI was not significantly associated with prices.
+- Employer angle: Consolidation's price effect flows through bargaining leverage tied to system size, so tools that preserve steering power (tiered networks, reference pricing, transparency) matter, and the missing self-insured claims in the data suggest the effect may be understated for self-funded plans.
+
+### The Current Era of Health Care Consolidation (Journal of Economic Perspectives 2026)
+- Richards and Whaley's review of roughly thirty years of evidence reports commercial insurers now pay hospitals about 250% of Medicare rates on average, up from around 106% in the mid-1990s; almost all US hospital markets exceed the federal "highly concentrated" threshold and more than half of physicians are employed by a hospital or health system, up from roughly a quarter fifteen years ago.
+- Hospital mergers are associated with commercial price increases of about 6% to more than 20% depending on how closely the merging hospitals competed, with no consistent improvement — and sometimes deterioration — in quality or access.
+- Vertical integration raises spending through referral shifts and site-of-care arbitrage: the same service bills substantially more in a hospital outpatient department than an independent office, so acquisitions pay for themselves without any clinical change.
+- The authors argue policy itself fuels consolidation — site-of-care payment differentials, Medicare Advantage rules rewarding insurer-provider integration, and merger-notification thresholds that let serial small deals escape review — and recommend ownership transparency, site-neutral payment, lower review thresholds, usable price transparency, and selective price regulation where competition is gone.
+- Employer angle: A hospital contract at 300% of Medicare is the upper end of a distribution whose center has climbed for three decades, not an outlier; network analysis needs to track ownership, not just tax IDs, and employers should not price in quality gains a merged system promises.
+
+### How Do Hospitals Exert Market Power? Evidence from Health Systems and Commercial Health Plan Prices (Health Affairs Scholar 2025)
+- Using 42,145 UnitedHealthcare and Aetna PPO negotiated rates (November 2023 Transparency in Coverage files) for 17 common outpatient surgeries at 1,932 hospital outpatient departments, median commercial rates were 245% and 243% of Medicare, ranging from about 101% for pediatric tonsillectomy to 341% for cataract surgery.
+- Measured at the health-system level, hospital markets are far more concentrated than hospital counts suggest: in more than half of 376 metro areas 100% of beds belonged to a system, the largest system averaged 61% of beds, and the median system-level HHI was 5,078 versus a median insurer HHI of 3,226.
+- Prices were 11% higher in the most concentrated hospital-system tertile than the least (232% of Medicare), while the most concentrated insurer markets paid about 15% less (259% down to about 221%).
+- Insurer leverage fades near monopoly: where hospital-system HHI was below 2,500, high insurer concentration bought prices 49 percentage points of Medicare lower; above 5,000 that advantage shrank to 11 points.
+- Employer angle: Carrier scale is not a substitute for provider competition — a national carrier's bargaining power delivers discounts only where hospitals still compete, which explains why the same insurer pays wildly different prices for the same colonoscopy in two cities.
+
+### Increases in Physician Professional Fees in Private Equity-Owned Gastroenterology Practices (Health Affairs 2025)
+- Linking new practice-ownership data to commercial claims (2015–2020) in a difference-in-differences design, allowed amounts at PE-acquired gastroenterology practices rose $92 per claim (+28.4%) over roughly six quarters after acquisition, even though those practices had lower allowed amounts than comparison practices beforehand.
+- The increase came almost entirely from professional fees, up $173 per claim (+78.1%); facility fees showed no statistically significant change. Utilization also rose after acquisition.
+- By 2021 PE controlled roughly 14% of gastroenterology practices (from essentially zero in 2016), while health-system employment of gastroenterologists rose from about 23% to 38% between 2016 and 2018.
+- Employer angle: "Independent" no longer means "lower-cost" — and because the markup lands in professional fees, site-neutral rules and ASC steerage will miss it, so employers should track ownership changes in their network and watch professional fees and volume in newly acquired groups.
+
+### The Changing Landscape of Primary Care: An Analysis of Payer-Primary Care Integration (Health Affairs Scholar 2025)
+- Building a 2016–2023 dataset of primary care practices owned by Optum, Humana, Elevance, Aetna-CVS, and Cigna, the authors found payer-operated practices grew from 0.78% to 4.2% of the national primary care market (measured within Medicare, 381,463 clinicians across 3,060 counties in 2023); Optum alone held 2.71% nationally and more than 35% in three large counties.
+- 6.4% of primary care clinicians worked in payer-operated practices in 2023, and insurer ownership tracked Medicare Advantage penetration: 5.5% market share in high-MA counties versus 1.5% in low-MA counties.
+- Insurers were less present where hospital markets were highly concentrated, suggesting they buy where no dominant hospital system stands in the way.
+- The paper measures where integration is happening, not its effects on cost, quality, or competition; commercial-market share is not directly observed.
+- Employer angle: Insurer-owned primary care is a small national share but heavily concentrated locally, so employers should ask whether their carrier or TPA owns practices in the network and whether referral patterns favor affiliated providers.
+
+### Insurers' Acquisition of Ambulatory Surgery Centers Was Not Associated With Changes in Performance, 2013–21 (Health Affairs 2026)
+- In a difference-in-differences analysis of 100% Medicare fee-for-service claims (2013–2021), ASCs acquired by UnitedHealthcare showed no measurable change in provider counts, patient volume, procedure volume, or patient mix for arthroscopy and colonoscopy; the only quality shift was a small decline in post-colonoscopy complications starting in the second year after acquisition.
+- Using 2023 Transparency in Coverage data with propensity-matched facilities, UnitedHealthcare's negotiated ASC facility rates were significantly lower than those of BCBS, Aetna, and Cigna — at both the ASCs it owned and those it did not.
+- The lower rates therefore reflect UnitedHealthcare's bargaining scale as a large payer, not a self-dealing discount at its own facilities; read with the February 2026 Optum ASC paper (prices to rival insurers rose), vertical integration has not made insurer-owned ASCs cheaper for anyone.
+- Employer angle: Payer scale, not payer ownership, is what moves ASC prices, so a self-funded employer's ASC rates depend heavily on which carrier's network it rents — and antitrust attention belongs on how integrated insurers price to competitors.
+
+### Provider-Sponsored Insurers, Medical Loss Ratios, and Quality Ratings in ACA Marketplaces (Health Affairs Scholar 2026)
+- Across 2,751 issuer-state-years of CMS MLR reports (2015–2023) linked to quality star ratings (2020–2023), the 21.1% of issuers that were provider-sponsored had MLRs 5.8 percentage points higher than traditional issuers (95% CI 2.0 to 9.7) and scored 0.65 more stars (95% CI 0.36 to 0.94), yet reported $5.5 less per member per month on quality-improvement expenses.
+- A 10-point higher MLR was associated with 0.15 more stars; prior-year quality-improvement spending predicted later ratings (0.04 stars per $10 PMPM) but current-year spending did not.
+- The authors caution that a provider-sponsored plan's higher MLR may partly reflect counting the parent system's own care as medical spending, so MLR alone is an imperfect yardstick and should be paired with direct quality measures.
+- The study covers the ACA individual market and may not carry over to employer-sponsored coverage; only the abstract was accessible when the summary was prepared.
+- Employer angle: A high MLR is not automatically efficiency — when evaluating a provider-sponsored plan option, employers should look at quality measures and price levels directly rather than treating the medical-spend share as a value signal.
+
+### Exposure to the New Medicare Advantage Risk Adjustment Model Varies Across Insurers (Health Affairs Scholar 2026)
+- Applying CMS's V28 risk-adjustment model (phased in from 2024, trimming discretionary diagnoses) to 2021 data, average MA risk scores fell 5.8% versus V24, with wide dispersion: SCAN −17.9%, UnitedHealthcare about −8%, BCBS roughly 0; HMOs −7.8% versus PPOs −1.9%; five-star plans −10.3%; high-Hispanic-enrollment contracts about −10.8%.
+- Insurers with heavier coding intensity lose the most revenue, which the authors tie to an estimated ~$40 billion a year in coding-driven overpayment under the prior model.
+- Uneven cuts imply uneven responses — premiums, cost sharing, supplemental benefits, and market exits — and the analysis uses pre-implementation data with an imperfect coding-intensity measure.
+- Employer angle: Carriers absorbing large MA revenue cuts have an incentive to recover margin across their book, so employers with those carriers should watch commercial ASO fees, trend assumptions, and network pricing for spillover pressure.
 
 ## Pharmacy, PBMs & Specialty Drugs
 
@@ -641,6 +728,27 @@
 - The most-dispensed categories were anti-inflammatory analgesics (12.2%), dermatologicals (10.5%), and antineoplastics (7.9%) — the biologic and oncology classes driving commercial trend.
 - Employer angle: About half the specialty channel sits with pharmacies the plan's own PBM or carrier owns, which is the conflict pushing employers toward carve-outs and pass-through contracts — though this study measures who would be disrupted by divestiture, not price or spread, and was funded by the PBM industry trade association.
 
+### Changes in Medicare Part D Coverage in Competitive Classes After the Inflation Reduction Act, 2024–2026 (Health Affairs Scholar 2026)
+- Tracking 59 brand-name drugs in 16 competitive classes via Fingertip Formulary data, average coverage in standalone Part D plans fell from 47.4% to 35.6% (−11.8 points) and in MA-PD plans from 52.3% to 46.4% (−5.9 points) between 2024 and 2026, while commercial plans — the comparison group — barely moved, from 71.4% to 70.3% (P = .5).
+- Coverage dropped more than 5% for 51% of drugs in PDPs and 42% in MA-PD versus 20% in commercial plans; the largest class declines were multiple sclerosis (−34.9 points in MA-PD), other ophthalmics (−32.4 in PDP), cystic fibrosis (−27.4), hepatitis C (−25.8), and COPD combinations (−25.1).
+- Roughly 2.7 million PDP and 1.8 million MA-PD enrollees lost coverage of an average included drug, consistent with plans shedding expensive brands once the IRA shifted catastrophic-phase liability onto them.
+- Research letter from an industry-funded group; the short window and commercial control cannot fully isolate the IRA's effect.
+- Employer angle: Medicare's post-IRA formulary tightening has not spread to employer plans so far, but the study is a live demonstration of how a patient out-of-pocket cap pushes plans toward formulary exclusion — the lever to watch in PBM exclusion lists.
+
+### Out-of-Pocket Costs for Diabetes Medications in Employer-Sponsored Health Plans (The American Journal of Managed Care 2026)
+- Among 69,185 members with at least 12 monthly fills across GLP-1s, SGLT2 inhibitors, insulin, and DPP-4 inhibitors in 2023 WTW Rx Collaborative claims (400+ employer plans, 5.3 million members), median annual out-of-pocket spending was $643.
+- GLP-1s were 48% of prescriptions but 60% of out-of-pocket dollars; SGLT2 inhibitors were proportional (22% and 20%); insulin was 26% of fills but only 17% of cost, reflecting manufacturer and statutory insulin caps; DPP-4s were 4% and 3%.
+- Patients on three or more diabetes drug classes at once reached $2,681 a year in the top decile, more than double the $1,217 top-decile figure for single-class users.
+- Descriptive brief from one vendor's client base; all authors are WTW employees and plan-design differences were not adjusted for.
+- Employer angle: GLP-1 cost exposure is already reshaping core diabetes care, not just the weight-loss benefit — employers reviewing copay tiers or point-of-sale rebate designs have a benchmark here for where member cost actually concentrates.
+
+### Drug Prices, Rebates, and Health Plan Coverage Restrictions (JAMA Network Open 2026)
+- Matching 6,688 specialty-drug coverage decisions from 18 large commercial plans (161 drugs, 422 drug-indication pairs, 2023) to SSR Health net-price and rebate estimates, 46% of decisions carried at least one utilization-management restriction beyond the FDA label.
+- Higher net (post-rebate) prices predicted restriction — about 2.3 times the odds (OR 2.28, P = .03) — while rebate size showed no consistent relationship once net price and drug characteristics were controlled, though the authors note the rebate result was not stable across every model.
+- Drugs in crowded classes and older drugs were restricted most; oncology drugs and those labeled second-line or later were restricted least.
+- Cross-sectional and based on estimated rebates aggregated across payers; the group's related 2025 work put median rebates near 27% overall and about 71% for biosimilars and their originators.
+- Employer angle: Plans appear to restrict on net cost rather than chase rebates, which argues for judging a PBM and formulary on net spending per treated member — and for asking the PBM to show net-price-ranked restriction logic for the top specialty classes.
+
 ## Oncology & High-Cost Care
 
 ### Completing the Colorectal Cancer Screening Process: Impact of Eliminating Cost-Sharing for Follow-Up Colonoscopy (Current Medical Research and Opinion 2025)
@@ -668,6 +776,19 @@
 - The sickle cell gene therapies approved in late 2023 at prices around $2.2 to $3.1 million add at most $0.78 per member per month across all payers.
 - Current CGT reinsurance products — built on an upfront per-member-per-month premium with rebates of unused funds at contract end — carry fees that add materially to expected costs, and coverage gaps remain common.
 - Employer angle: At under $20 per person per year, cell and gene therapy is a risk-pooling problem rather than an affordability one — the real exposure is that a single multimillion-dollar claim can exceed a small self-insured employer's entire annual medical spend, which makes stop-loss pricing and carve-out design the operative question.
+
+### Divergent Cost Trends for 3 Advanced Cancers, 2013 vs 2022: A Commercial Claims Analysis (The American Journal of Managed Care 2026)
+- In MarketScan commercial claims, 12-month cost per patient fell for metastatic colorectal cancer ($239,003 to $203,499, −15%) but rose for metastatic non-small cell lung cancer ($220,662 to $276,883, +25%) and multiple myeloma ($216,337 to $327,495, +51%).
+- Colorectal savings came from cytotoxic chemotherapy dropping from $25,682 to $10,946 and supportive medications falling about $6,100, consistent with generic and biosimilar competition; immunotherapy stayed flat near $26,000.
+- Immunotherapy drove the increases: lung from $12,854 (6% of cost) to $65,555 (24%), with adjusted costs $58,332 higher in 2022; myeloma from $21,216 (10%) to $128,658 (39%), with adjusted costs $124,879 higher. Fewer patients were lost to death or disenrollment in 2022, hinting at better survival.
+- Employer angle: Cancer cost growth is uneven and concentrated in novel patent-protected therapies, so stop-loss and benefit strategy should target which specific therapies drive spend and what they deliver rather than treating oncology as one undifferentiated trend.
+
+### Commercial Health Spending Is Concentrated in a Small Group of High-Intensity Consumers Across Settings of Care (Journal of Managed Care & Specialty Pharmacy 2022)
+- Among 16,872,732 continuously enrolled commercial members in 2018 IQVIA PharMetrics Plus data (about $99.1 billion in spending), the top 1% of patients accounted for 27.6% of spending, the top 5% for 55.3%, and the top 10% for 69.4%, while the bottom half accounted for about 4%; the overall Gini coefficient was 0.76.
+- Average spending was $152,350 for the top 1% versus $474 for the bottom half, and fell 80% between the top 1% and the next 4%.
+- Inpatient care was the most concentrated category (Gini 0.97: roughly half of inpatient dollars in the top 1%, 85% in the top 5%, 97% in the top 10%), while office visits were the most dispersed (Gini 0.49). Drugs were the largest category at 28.5% of spending (26.1% after a 15% rebate adjustment), ahead of ambulatory care at 26.4%, inpatient 19.1%, office visits 18.4%, and additional services 7.5%.
+- Single plan year, under-65 employer population, and National Pharmaceutical Council funding with two NPC authors.
+- Employer angle: When the top few percent of claimants carry most of the plan's dollars and nearly all of its inpatient spend, targeted levers (case management, high-cost claim review, stop-loss design, site-of-care and drug steerage) beat plan-wide cost sharing — and a handful of large claims can swing a plan year.
 
 ## Site of Care
 
@@ -766,6 +887,20 @@
 - 44.0% agreed employers should offer a plan option excluding above-average-cost providers that lack evidence of above-average quality, while only 10% of employers with 50 or more employees offer one; 74.8% expressed high or moderate trust in their employer's negotiating, and trust flipped the sign on narrow-network acceptance.
 - Employer angle: Employee resistance is a weaker constraint on cost control than usually assumed — the missing piece is a visible, credible mechanism for returning savings, and the authors caution that purchasers should demonstrate they can negotiate well before asking workers to trade away provider choice.
 
+### Real-World Brinkmanship in Hospital-Insurer Negotiations (Health Affairs 2026)
+- In a national dataset of about 14,900 hospital-insurer relationships (3,772 hospitals, 92 insurers) from August 2021 to July 2025, roughly 8% of relationships (about 1,249 episodes) saw a public termination threat, but only about 28% of those (348, roughly 2% of all relationships) ended in a network exit; most episodes occurred after August 2023.
+- Threats clustered in a "Goldilocks zone" of mid-sized power: hospital systems holding about 23–45% of local beds and insurers with about 30–45% of commercial lives had threat rates near 16%. For-profit hospitals were about twice as likely to threaten but rarely followed through, and higher-priced providers were more likely to go public.
+- The lead author attributes rising disputes to hospital consolidation and to price transparency ("nobody wants to be the worst paid on the block").
+- Caveat noted in the file: the summary relies on press coverage because full text was blocked; an earlier cut of the data used different periods and units.
+- Employer angle: Network stability is now a contracting risk in its own right — No Surprises Act transitional coverage (about 90 days) and state continuity-of-care laws give only partial protection when a carrier and a dominant system go to the brink.
+
+### Use, Modality, and Reimbursement Patterns of Outpatient Psychotherapy Among Children With Commercial Insurance (JAMA Network Open 2026)
+- In MarketScan claims for 1.2 million commercially insured children (17.2 million therapy visits, 2016–2023), children with any psychotherapy rose from 41.8 to 60.0 per 1,000 enrolled (+44%) and visits from 368 to 634 per 1,000 (+72%); growth accelerated in 2020–2021 and did not reverse. Mean visits among users rose from 8.6 to 10.4 a year.
+- Visits got longer: the 60-minute code went from 38% to 63% of visits while the 45-minute code fell from 46% to 24%, a coding shift that raises cost per visit on its own since the longer code pays about 25% more.
+- Telehealth settled at 20.5% of visits in 2023 after peaking at 31% in 2021; out-of-network visits fell from about 20% to 15.3% even as volume surged.
+- Real in-network payment barely moved ($119 to $122 for a 60-minute session, $92 to $99 for 45 minutes), while out-of-network rates stayed 30–60% higher but declined in real terms. State any-use ranged from 28 per 1,000 in Florida to 109 in Rhode Island.
+- Employer angle: Pediatric behavioral health cost growth is a volume-and-intensity story, not a unit-price story, so the metrics to watch in claims are visits per 1,000 and the share of sessions billed at 60 minutes, not the fee schedule.
+
 ## Cost Sharing & Affordability
 
 ### Healthcare Spending Burdens of Employer-Sponsored Insurance Enrollees Across the Income Distribution (Compensation & Benefits Review 2026)
@@ -851,6 +986,26 @@
 - Members with family coverage, who face the largest tier-to-tier differentials, were more likely to move to a lower tier; no other heterogeneous treatment effects appeared.
 - Employer angle: A communications campaign is low-yield bolted onto a weak benefit design and largely redundant on top of a strong one — the design does the work, and tiering on total cost of care rather than unit price is what captures utilization intensity.
 
+### What Do Health Insurance Deductibles Do to Health Care Spending Growth? (International Journal of Health Economics and Management 2026)
+- Following 53,721 Elevance employer groups across 14 states (2015–2018, adults 18–64), including 12,888 that switched to a high-deductible plan, HDHP members spent about 20% less than low-deductible members at baseline, but four-year spending growth was not significantly different between the groups.
+- Employers that switched saw a marginally significant first-year drop in total and medical spending that did not persist beyond year one.
+- Pharmacy was the exception: drug spending grew more slowly in HDHPs ($570 vs. $694 over three years, p<0.01). The likely mechanism is that new medical technologies are less price-sensitive, so deductibles trim lower-value existing care without slowing adoption of new treatments.
+- The authors conclude HDHPs do not have the long-term cost-containment potential their advocates claim and question the tax advantages that favor them; the study is a single insurer in limited states and does not assess outcomes.
+- Employer angle: Moving to a high-deductible design is a one-time level shift, not a trend fix — plan-design changes should be judged on multi-year trend, and bending the curve likely requires supply-side levers (prices, site of care, provider payment).
+
+### Health Care-Related Savings Accounts, Health Care Expenditures, and Tax Expenditures (JAMA Health Forum 2024)
+- Across 17,038 families with employer coverage in MEPS 2011–2019, about 30% used an FSA or HSA; FSA holders spent roughly 20% more (about $2,033 a year), with more than $1,500 of the extra paid by plans and about $500 out of pocket.
+- HSA holders had about 44% higher out-of-pocket spending ($500–$700) with no significant reduction in plan spending; the extra use was in office, dental, and vision care, with no significant inpatient or ED link.
+- About 75% of FSA holders and 68% of HSA holders had incomes above 400% of the federal poverty level, so the tax subsidy skews to higher-income families; the authors conclude the accounts reduce equity without improving efficiency.
+- Observational, data end in 2019, and the summary was drawn from the abstract and secondary reports.
+- Employer angle: Tax-advantaged accounts do not appear to make members spend less — the added use lands in commercial claims and premiums — so employers should not count on them as a cost-containment lever.
+
+### Delivery Timing, Out-of-Pocket Maternity Costs, and Postpartum Care Utilization (Health Services Research 2026)
+- Using the plan-year deductible reset as a natural experiment across 51,337 Blue Cross Blue Shield of Massachusetts maternity episodes (2019–2023; fewer than 60% of plan years start in January), members delivering in the first month of their plan year paid $2,306 out of pocket for pregnancy and delivery versus $1,814 for last-month deliveries (+$492, 21%), and $3,660 versus $2,742 in high-deductible plans (+$918).
+- The pattern flipped postpartum: late-year deliverers paid $164 for postpartum care versus $69 for early deliverers (a 58% gap), while total plan-plus-patient spending did not vary by delivery month.
+- Higher delivery bills did not suppress postpartum care; each extra $100 of pregnancy-and-delivery out-of-pocket cost caused by timing raised the probability of any outpatient visit in the first three months by 0.53 percentage points (baseline 82.5%), about 2.7 points or 3.2% at the typical $500 difference, with similar effects in the high-deductible subgroup. Members respond to the price at the point of care, not to bills already paid.
+- Employer angle: Waiving cost sharing for delivery alone would leave more members facing a fresh deductible in the highest-risk postpartum window — a maternity cost-sharing exemption should extend through the postpartum period, and maternity analyses must use actual plan-year start dates.
+
 ## Self-Funding & Plan Management
 
 ### Care Coordination for High-Need, High-Cost Commercially Insured Patients: A Randomized Clinical Trial (JAMA Network Open 2025)
@@ -934,6 +1089,26 @@
 - The savings depended almost entirely on active care management — bundling was worth $39.28 PMPM (9%) for employers that bought the carrier's population health management program but a statistically insignificant $16.84 PMPM without it, and bundled members were 10.8% more likely to receive a nurse outreach.
 - Among 83,865 matched pairs with at least one of ten chronic conditions, bundling with the program saved $54.50 PMPM while bundling without it saved nothing ($1.78 PMPM, not significant). Pharmacy spend itself was not measured, and all five authors are employed by or consult for the carrier that sells both products.
 - Employer angle: The medical offset is worth roughly $250–500 per member per year against a carve-out PBM bid, but the mechanism is data reaching care managers rather than the contract structure itself — so an employer that carves out and feeds full pharmacy claims to its care-management vendor may capture most of it, and one that bundles without care management captures little.
+
+### The Financial Impact of an Employee Wellness Program Focused on Cardiovascular Disease Risk Reduction (Healthcare, MDPI 2024)
+- Modeling the University of Rochester's wellness program (health assessment, biometric screening, nurse coaching, 10-year CVD risk score) for 9,116 employees (2013–2017), the authors estimate $1,224.23 in savings against $206.42 in cost per person — about $4.90 saved per $1 spent on a one-year horizon.
+- The return was driven almost entirely by the roughly 3% of participants who were high risk: at-risk men (n=254) showed an ROI of 35.4 and at-risk women (n=58) 19.2, versus 0.3 for minimal-risk men and 5.0 for minimal-risk women.
+- Savings were extrapolated from two earlier claims-based studies rather than observed in the program's own claims; there was no control group, participants self-selected, and the authors were employed by the funding university — so the 4.9x figure is hypothesis-grade, and earlier randomized workplace-wellness evidence is less favorable.
+- Employer angle: If wellness spending pays off at all, it does so by finding and engaging the small high-risk slice of the population — which is a claims-analytics targeting problem, not a broad-enrollment problem.
+
+### Value-Based Payment Models in the Commercial Insurance Sector: A Systematic Review (Health Affairs 2022)
+- Reviewing 59 studies (2000–2020) of commercial pay-for-performance, bundled/episode, shared savings/risk, and population-based payment models, quality improved in about 81% of studies, utilization in about 58%, and spending in only about 56%, with spending results the most mixed.
+- Only pay-for-performance showed positive results across quality, spending, and utilization; shared-risk models had the most conflicting spending findings, and bundled payments were the least studied.
+- The authors characterize effects as "mixed and modest": commercial VBP is more likely to improve quality than to cut costs, partly because commercial payers' incentives are diluted across many providers relative to Medicare's scale.
+- Caveat noted in the file: the summary is based on the citation record and secondary coverage, so percentages should be checked against the original.
+- Employer angle: A carrier's value-based contracting program should not be assumed to lower an employer's spend — quality gains are the reliable benefit, and any savings claim deserves verification in the plan's own claims.
+
+### A Sleeping Giant of Health Care Affordability — Self-Insured Employers (New England Journal of Medicine 2026)
+- Song and Gondi note that roughly three-quarters of large employers self-insure, that self-insured plans cover a majority of Americans with job-based coverage, and that employer-sponsored insurance covers roughly half to 60% of the US population — yet this purchasing power goes largely unused.
+- The structural blind spot is communication: clinicians generally cannot tell that an employer rather than the carrier is behind a coverage rule, so employer levers (vendor-based GLP-1 programs with coaching requirements, redirecting infused cancer drugs to lower-cost sites that can save on the order of $1 million per case in aggregate) surface as confusing denials and prior-authorization hurdles.
+- The authors cite the roughly 30% of US health spending estimated to be waste and note GLP-1s alone can raise a self-insured plan's pharmacy spend by 9% to 20%; they recommend clinician awareness, direct channels between employers and local health systems, transparency to prescribers, and optional direct contracting.
+- Commentary noted in the file: many of these reforms must run through TPA, broker, and stop-loss relationships whose incentives favor the status quo, so claims-data ownership and contract control are prerequisites.
+- Employer angle: The employer, not the logo on the card, is the real payer for most large-group coverage — using that leverage starts with owning the plan's claims data and communicating benefit-design intent to the clinicians it affects.
 
 ## Industry Outlook & Delivery-System Economics (McKinsey)
 
